@@ -1,0 +1,1141 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Transformación de Datos para el Modelo Relacional - Manual de usuario Modelo Analítico Optimización de Procesos</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#d89717" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#transformacion-de-datos-para-el-modelo-relacional" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Manual de usuario Modelo Analítico Optimización de Procesos" class="md-header__button md-logo" aria-label="Manual de usuario Modelo Analítico Optimización de Procesos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Manual de usuario Modelo Analítico Optimización de Procesos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Transformación de Datos para el Modelo Relacional
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Manual de usuario Modelo Analítico Optimización de Procesos" class="md-nav__button md-logo" aria-label="Manual de usuario Modelo Analítico Optimización de Procesos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Manual de usuario Modelo Analítico Optimización de Procesos
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_glosario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GLOSARIO DE TÉRMINOS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_objetivo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OBJETIVO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_alcance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ALCANCE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_logica_modelo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LÓGICA DEL MODELO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_consideraciones_uso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CONSIDERACIONES DE USO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_recoleccion_info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RECOLECCIÓN DE INFORMACIÓN Y BASES DE DATOS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    TRANSFORMACIÓN Y CARGA DE DATOS>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            TRANSFORMACIÓN Y CARGA DE DATOS>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.1_reglas_generales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Reglas Generales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.2_carga_parametricas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Carga de Paramétricas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.3_transformaciones_intermedias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Transformaciones Intermedias y Satisfacción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08_centralizacion_info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CENTRALIZACIÓN DE LA INFORMACIÓN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    VISUALIZACIÓN DE RESULTADOS>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            VISUALIZACIÓN DE RESULTADOS>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualizacion_resultados/9.1_medidas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Medidas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualizacion_resultados/9.2_campos_calculados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Campos Calculados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualizacion_resultados/9.3_menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Menú
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualizacion_resultados/9.4_rendimiento_afiliacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Rendimiento del Proceso de Afiliación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualizacion_resultados/9.5_rendimiento_aportes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Rendimiento del Proceso de Aportes (Empresas)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualizacion_resultados/9.6_rendimiento_cuota/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Rendimiento del Proceso de Cuota Monetaria
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualizacion_resultados/9.7_tactico/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Táctico
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualizacion_resultados/9.8_seguimiento_indicadores/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Seguimiento de Indicadores Operativos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tablas-dim" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tablas Dim
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tablas Dim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#estadosdim" class="md-nav__link">
+    <span class="md-ellipsis">
+      EstadosDim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zonedim" class="md-nav__link">
+    <span class="md-ellipsis">
+      ZoneDim
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#festivoscolombia" class="md-nav__link">
+    <span class="md-ellipsis">
+      FestivosColombia
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zonedimcoor" class="md-nav__link">
+    <span class="md-ellipsis">
+      ZoneDimCoor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apo_proy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apo_Proy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metascoberturaafiliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      MetasCoberturaAfiliacion
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metricas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detalle_preguntas_encuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detalle_preguntas_encuestas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meta_indicadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      Meta_indicadores
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#erroresgrabacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      ErroresGrabación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metasencuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      MetasEncuestas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metascuota" class="md-nav__link">
+    <span class="md-ellipsis">
+      MetasCuota
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estadocivil" class="md-nav__link">
+    <span class="md-ellipsis">
+      EstadoCivil
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#genero" class="md-nav__link">
+    <span class="md-ellipsis">
+      Genero
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#niveleducativo" class="md-nav__link">
+    <span class="md-ellipsis">
+      NivelEducativo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tablaafiliaciones-y-tablaaportes" class="md-nav__link">
+    <span class="md-ellipsis">
+      TablaAfiliaciones y TablaAportes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estadogirocuota" class="md-nav__link">
+    <span class="md-ellipsis">
+      EstadoGiroCuota
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpto_ciudad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dpto_Ciudad
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ben-x-trab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ben x Trab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#igestion_mercurio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Igestion_Mercurio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicadoresomdummy" class="md-nav__link">
+    <span class="md-ellipsis">
+      IndicadoresOMDummy
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tablas-fact" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tablas Fact
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tablas Fact">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#historico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Historico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historicoaportesemp-y-historicoaportesempnoafil" class="md-nav__link">
+    <span class="md-ellipsis">
+      HistoricoAportesEmp y HistoricoAportesEmpNoAfil
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historicomoraemp" class="md-nav__link">
+    <span class="md-ellipsis">
+      HistoricoMoraEmp
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historicocuota" class="md-nav__link">
+    <span class="md-ellipsis">
+      HistoricoCuota
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historicoans" class="md-nav__link">
+    <span class="md-ellipsis">
+      HistoricoANS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historicosubprescrito-y-historicorecobro" class="md-nav__link">
+    <span class="md-ellipsis">
+      HistoricoSubPrescrito y HistoricoRecobro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#historicorecuperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      HistoricoRecuperado
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="transformacion-de-datos-para-el-modelo-relacional">Transformación de Datos para el Modelo Relacional<a class="headerlink" href="#transformacion-de-datos-para-el-modelo-relacional" title="Permanent link">&para;</a></h1>
+<p>Las transformaciones de datos para el modelo relacional se realizan en consultas y dentro del ambiente de Power BI, incluyendo Power Query y DAX. Como se describe en el modelo lógico, todas las entradas se leen desde Minerva y el servidor de pruebas. A continuación, se listan los procesos efectuados en las tablas junto con las reglas de negocio aplicadas:</p>
+<h2 id="tablas-dim">Tablas Dim<a class="headerlink" href="#tablas-dim" title="Permanent link">&para;</a></h2>
+<h3 id="estadosdim">EstadosDim<a class="headerlink" href="#estadosdim" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tabla paramétrica de descripción de estado de afiliación. Se lee desde la base <strong>Subsidio</strong> en el servidor de Minerva de la tabla <code>subsidio.subsi36</code>.</li>
+<li>Se eliminan columnas no utilizadas, dejando solo <code>codest</code> y <code>detest</code>.</li>
+</ol>
+<h3 id="zonedim">ZoneDim<a class="headerlink" href="#zonedim" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tabla paramétrica de descripción de zonas. Se lee desde <strong>Subsidio</strong> en el servidor de Minerva de la tabla <code>schoolkits.SK13</code>.</li>
+<li>Se eliminan columnas no utilizadas, dejando solo <code>id</code> o <code>RUTA</code>.</li>
+</ol>
+<h3 id="festivoscolombia">FestivosColombia<a class="headerlink" href="#festivoscolombia" title="Permanent link">&para;</a></h3>
+<p>Tabla con información de fechas festivas en Colombia, implementada en Power Query mediante una función desarrollada por Miguel Caballero y Fabian Torres (https://www.excelfreeblog.com).</p>
+<h3 id="zonedimcoor">ZoneDimCoor<a class="headerlink" href="#zonedimcoor" title="Permanent link">&para;</a></h3>
+<p>Tabla con coordenadas de zonas, utilizada para homologar nombres y graficar en las visualizaciones. Se lee de la tabla <code>dwh.Coordenadas</code> en dwh.</p>
+<h3 id="apo_proy">Apo_Proy<a class="headerlink" href="#apo_proy" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tabla paramétrica con proyección de aportes empresariales, leída desde <code>dwh.Proyeccion_cumpl_aportes</code>.</li>
+<li>Modificación de formatos de columnas.</li>
+<li>Cambio de nombre de la columna <code>periodo</code> a <code>Mes</code>.</li>
+<li>Creación de la columna <code>Periodo</code> con el periodo numérico de <code>Mes</code>.</li>
+</ol>
+<h3 id="metascoberturaafiliacion">MetasCoberturaAfiliacion<a class="headerlink" href="#metascoberturaafiliacion" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tabla con proyecciones de afiliación, leída desde <code>dwh.Meta_proyeccion_cobertura_afiliacion</code>.</li>
+<li>Creación de la columna <code>KeyHistorico</code> para unir con la tabla Histórico.</li>
+<li>Filtrado de información específica para empresas.</li>
+</ol>
+<h3 id="metricas">Metricas<a class="headerlink" href="#metricas" title="Permanent link">&para;</a></h3>
+<p>Tabla paramétrica con indicadores y resultados de satisfacción, leída desde <code>dwh.Metricas</code>.</p>
+<h3 id="detalle_preguntas_encuestas">Detalle_preguntas_encuestas<a class="headerlink" href="#detalle_preguntas_encuestas" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tabla con detalles de preguntas para encuestas, leída desde <code>dwh.Detalle_preguntas_encuestas</code>.</li>
+<li>Creación de la columna <code>Fuente_Pregunta</code> para unir con la tabla Satisfacción.</li>
+</ol>
+<h3 id="meta_indicadores">Meta_indicadores<a class="headerlink" href="#meta_indicadores" title="Permanent link">&para;</a></h3>
+<p>Tabla con indicadores definidos por el negocio, leída desde <code>dwh.Metas_indicadores</code>.</p>
+<h3 id="erroresgrabacion">ErroresGrabación<a class="headerlink" href="#erroresgrabacion" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tabla con errores de grabación, leída desde <code>dwh.Errores_grabacion</code>.</li>
+<li>Estructuración de una columna de atributos (renombrada a <code>Error</code>) y otra con el número de errores (<code>NumErrores</code>).</li>
+</ol>
+<h3 id="metasencuestas">MetasEncuestas<a class="headerlink" href="#metasencuestas" title="Permanent link">&para;</a></h3>
+<p>Tabla con lineamientos de la Superintendencia para encuestas, leída desde <code>dwh.MetasEncuestasSuper</code>.</p>
+<h3 id="metascuota">MetasCuota<a class="headerlink" href="#metascuota" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tabla con cronograma de pago de cuotas monetarias, leída desde <code>dwh.MetasCuota</code>.</li>
+<li>Estructuración de días de pago en una columna única.</li>
+<li>Eliminación de columnas no utilizadas, manteniendo solo <code>Año</code>, <code>Mes</code> y <code>Día</code>.</li>
+<li>Creación de columnas con codificación de meses y fechas.</li>
+</ol>
+<h3 id="estadocivil">EstadoCivil<a class="headerlink" href="#estadocivil" title="Permanent link">&para;</a></h3>
+<p>Tabla con estado civil de afiliados, leída desde <code>xml4.xml4b093</code> en Minerva.</p>
+<h3 id="genero">Genero<a class="headerlink" href="#genero" title="Permanent link">&para;</a></h3>
+<p>Tabla con estado civil de afiliados, leída desde <code>xml4.xml4b005</code> en Minerva.</p>
+<h3 id="niveleducativo">NivelEducativo<a class="headerlink" href="#niveleducativo" title="Permanent link">&para;</a></h3>
+<p>Tabla con detalle del nivel educativo, leída desde <code>xml4.xml4b047</code> en Minerva.</p>
+<h3 id="tablaafiliaciones-y-tablaaportes">TablaAfiliaciones y TablaAportes<a class="headerlink" href="#tablaafiliaciones-y-tablaaportes" title="Permanent link">&para;</a></h3>
+<p>Tablas de ayuda para visualizaciones.</p>
+<h3 id="estadogirocuota">EstadoGiroCuota<a class="headerlink" href="#estadogirocuota" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tabla paramétrica con estado de giro de cuotas monetarias, leída desde <code>subsi09</code> y <code>subsi146</code> en Minerva.</li>
+<li>Creación de la columna <code>KeyCuota</code> para unir con Histórico Cuota.</li>
+</ol>
+<h3 id="dpto_ciudad">Dpto_Ciudad<a class="headerlink" href="#dpto_ciudad" title="Permanent link">&para;</a></h3>
+<p>Tabla con códigos de departamento y ciudad, leída desde <code>empresa.gener08</code> y <code>empresa.gener07</code> en Minerva.</p>
+<h3 id="ben-x-trab">Ben x Trab<a class="headerlink" href="#ben-x-trab" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tabla con conteo de beneficiarios por trabajador, leída desde <code>xml4.xml4c087</code> en Minerva.</li>
+<li>Creación de la columna <code>KeyHistoricos</code> para unir con Histórico.</li>
+</ol>
+<h3 id="igestion_mercurio">Igestion_Mercurio<a class="headerlink" href="#igestion_mercurio" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tabla con distribución de afiliaciones por medio, leída desde <code>dwh</code> y archivos de Igestión y Mercurio.</li>
+<li>Creación de la columna <code>KeyHistorico</code>.</li>
+</ol>
+<h3 id="indicadoresomdummy">IndicadoresOMDummy<a class="headerlink" href="#indicadoresomdummy" title="Permanent link">&para;</a></h3>
+<p>Tabla dummy con indicadores para la medición de la matriz RASCI, extraída de <code>Indicadores.xlsx</code>.</p>
+<h2 id="tablas-fact">Tablas Fact<a class="headerlink" href="#tablas-fact" title="Permanent link">&para;</a></h2>
+<h3 id="historico">Historico<a class="headerlink" href="#historico" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Información histórica de empresas y afiliados, leída desde <code>dwh.op_sec_EmpresasSubsi02_v2</code>.</li>
+<li>Relación con tablas <code>xml4.xml4c085</code> y <code>xml4.xml4c086</code> y <code>op_Periodos</code>.</li>
+<li>Inclusión de trabajadores con <code>left join</code> por <code>nit</code>.</li>
+<li>Creación de llaves y columnas adicionales para análisis.</li>
+</ol>
+<h3 id="historicoaportesemp-y-historicoaportesempnoafil">HistoricoAportesEmp y HistoricoAportesEmpNoAfil<a class="headerlink" href="#historicoaportesemp-y-historicoaportesempnoafil" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tablas con histórico de aportes empresariales, leídas desde Minerva.</li>
+<li>Creación de columnas y formato adecuado para análisis y vinculación.</li>
+</ol>
+<h3 id="historicomoraemp">HistoricoMoraEmp<a class="headerlink" href="#historicomoraemp" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tabla con histórico de mora, basada en <code>xml4.xml4c070</code>.</li>
+<li>Cruce con <code>subsidio.subsi173</code> y creación de llaves.</li>
+</ol>
+<h3 id="historicocuota">HistoricoCuota<a class="headerlink" href="#historicocuota" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Histórico de entrega de cuotas, basado en <code>subsidio.subsi09</code> y <code>dwh.Oportunidad</code>.</li>
+</ol>
+<h3 id="historicoans">HistoricoANS<a class="headerlink" href="#historicoans" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Histórico de tiempos de afiliación, basado en <code>subsidio.subsi02</code>, <code>subsi15</code> y <code>subsi23</code>.</li>
+</ol>
+<h3 id="historicosubprescrito-y-historicorecobro">HistoricoSubPrescrito y HistoricoRecobro<a class="headerlink" href="#historicosubprescrito-y-historicorecobro" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Tablas con histórico de subsidios prescritos y recobros, leídas desde Minerva.</li>
+<li>Creación de columnas para unión y análisis.</li>
+</ol>
+<h3 id="historicorecuperado">HistoricoRecuperado<a class="headerlink" href="#historicorecuperado" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Información de aportes recuperados, cruzada con <code>subsidio.subsi115</code> y <code>subsi11</code>.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/init_mermaid.js"></script>
+      
+    
+  </body>
+</html>

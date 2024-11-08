@@ -1,0 +1,3504 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../08_centralizacion_info/">
+      
+      
+        <link rel="next" href="../9.2_campos_calculados/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>1. Medidas - Manual de usuario Modelo Analítico Optimización de Procesos</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#d89717" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#indicadores-y-medidas-calculadas" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Manual de usuario Modelo Analítico Optimización de Procesos" class="md-header__button md-logo" aria-label="Manual de usuario Modelo Analítico Optimización de Procesos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Manual de usuario Modelo Analítico Optimización de Procesos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Medidas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Manual de usuario Modelo Analítico Optimización de Procesos" class="md-nav__button md-logo" aria-label="Manual de usuario Modelo Analítico Optimización de Procesos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Manual de usuario Modelo Analítico Optimización de Procesos
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_glosario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GLOSARIO DE TÉRMINOS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_objetivo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OBJETIVO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_alcance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ALCANCE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_logica_modelo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LÓGICA DEL MODELO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_consideraciones_uso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CONSIDERACIONES DE USO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_recoleccion_info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RECOLECCIÓN DE INFORMACIÓN Y BASES DE DATOS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    TRANSFORMACIÓN Y CARGA DE DATOS>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            TRANSFORMACIÓN Y CARGA DE DATOS>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transformacion_carga/7.1_reglas_generales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Reglas Generales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transformacion_carga/7.2_carga_parametricas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Carga de Paramétricas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transformacion_carga/7.3_transformaciones_intermedias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Transformaciones Intermedias y Satisfacción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08_centralizacion_info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CENTRALIZACIÓN DE LA INFORMACIÓN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    VISUALIZACIÓN DE RESULTADOS>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            VISUALIZACIÓN DE RESULTADOS>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    1. Medidas
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    1. Medidas
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-_muestra" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. _muestra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-_erroresafiliaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. _#ErroresAfiliaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-_desafiliaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. _%desafiliaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-_erroresafiliaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. _%ErroresAfiliaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-_erroresafilpoblacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. _%ErroresAfilPoblacion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-_pardesafiliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. _%ParDesafiliacion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-_incmesactualvsanteriorafilmesanterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. _incMesActualvsAnteriorAfilMesAnterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-_incmesactualvsanteriorafilmesanteriorano" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. _incMesActualvsAnteriorAfilMesAnterior(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-_incmesactualvsanteriorafilnuevas" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. _incMesActualvsAnteriorAfilNuevas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-_incmesactualvsanteriorafilnuevasano" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. _incMesActualvsAnteriorAfilNuevas(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-_incrementodesafimesactualvsanterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. _incrementoDesafiMesActualvsAnterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-_incrementodesafimesactualvsanteriorano" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. _incrementoDesafiMesActualvsAnterior(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-_indicadorcumplimientoafiliacionestrab" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. _IndicadorCumplimientoAfiliacionesTrab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-_indicadornocumplimientoafiliacionestrab" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. _IndicadorNoCumplimientoAfiliacionesTrab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-_totalafiliados" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. _totalAfiliados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-_indicadorafiloportunasemp" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. _indicadorAfilOportunasEmp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-_indicadorafiloportunastrab" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. _indicadorAfilOportunasTrab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-_indicadornoafiloportunasemp" class="md-nav__link">
+    <span class="md-ellipsis">
+      18. _indicadorNoAfilOportunasEmp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-_indicadornoafiloportunastrab" class="md-nav__link">
+    <span class="md-ellipsis">
+      19. _indicadorNoAfilOportunasTrab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-_empnoafiliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      20. _#EmpNoAfiliadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-_empnoafiliadasano" class="md-nav__link">
+    <span class="md-ellipsis">
+      21. _#EmpNoAfiliadas(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-_empnoafiliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      22. _$EmpNoAfiliadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-_empsiafiliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      23. _$EmpSiAfiliadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-_aportesactualvsanteriorano" class="md-nav__link">
+    <span class="md-ellipsis">
+      24. _aportesActualvsAnterior(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-_incmesactualvsanterioraportesafilmesanterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      25. _incMesActualvsAnteriorAportesAfilMesAnterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-_incmesactualvsanterioraportesafilmesanteriorano" class="md-nav__link">
+    <span class="md-ellipsis">
+      26. _incMesActualvsAnteriorAportesAfilMesAnterior(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-_incmesactualvsanterioraportesafilperiodo" class="md-nav__link">
+    <span class="md-ellipsis">
+      27. _incMesActualvsAnteriorAportesAfilPeriodo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-_incmesactualvsanterioraportesafilperiodoano" class="md-nav__link">
+    <span class="md-ellipsis">
+      28. _incMesActualvsAnteriorAportesAfilPeriodo(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-_incmesactualvsanterioraportesnoafil" class="md-nav__link">
+    <span class="md-ellipsis">
+      29. _incMesActualvsAnteriorAportesNoAfil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30-_incmesactualvsanterioraportesnoafilano" class="md-nav__link">
+    <span class="md-ellipsis">
+      30. _incMesActualvsAnteriorAportesNoAfil(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-_incmesactualvsanterioraportesrecmora" class="md-nav__link">
+    <span class="md-ellipsis">
+      31. _incMesActualvsAnteriorAportesRecMora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-_incmesactualvsanterioraportesrecmoraano" class="md-nav__link">
+    <span class="md-ellipsis">
+      32. _incMesActualvsAnteriorAportesRecMora(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-_incmesactualvsanterioraportesrecmorapres" class="md-nav__link">
+    <span class="md-ellipsis">
+      33. _incMesActualvsAnteriorAportesRecMoraPres
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-_incmesactualvsanterioraportesrecmorapresano" class="md-nav__link">
+    <span class="md-ellipsis">
+      34. _incMesActualvsAnteriorAportesRecMoraPres(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-_indicadoraportesactualvsanterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      35. _indicadorAportesActualvsAnterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-_indicadorproyeccionvaloraporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      36. _indicadorProyeccionValorAporte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-_indicadornoproyeccionvaloraporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      37. _indicadorNoProyeccionValorAporte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-_total_aportes" class="md-nav__link">
+    <span class="md-ellipsis">
+      38. _Total_aportes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-aporempafil" class="md-nav__link">
+    <span class="md-ellipsis">
+      39. %AporEmpAfil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#40-aporempnoafil" class="md-nav__link">
+    <span class="md-ellipsis">
+      40. %AporEmpNoAfil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-_cuotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      41. _#Cuotas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-_beneficiarioscuota" class="md-nav__link">
+    <span class="md-ellipsis">
+      42. _beneficiariosCuota
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-_girospagados" class="md-nav__link">
+    <span class="md-ellipsis">
+      43. _girosPagados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-_incrementocmmesactualvsanterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      44. _incrementoCMMesActualvsAnterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-_incrementocmmesactualvsanteriorano" class="md-nav__link">
+    <span class="md-ellipsis">
+      45. _incrementoCMMesActualvsAnterior(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-_indicadorcalidadpagocm" class="md-nav__link">
+    <span class="md-ellipsis">
+      46. _indicadorCalidadPagoCM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47-_indicadoroportunidadpagocm" class="md-nav__link">
+    <span class="md-ellipsis">
+      47. _indicadorOportunidadPagoCM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48-_bencuota" class="md-nav__link">
+    <span class="md-ellipsis">
+      48. _#benCuota
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49-_procuatrimestre" class="md-nav__link">
+    <span class="md-ellipsis">
+      49. _ProCuatrimestre
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#50-_progiroxpersona" class="md-nav__link">
+    <span class="md-ellipsis">
+      50. _ProGiroxPersona
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-_validacioncumpleencuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      51. _ValidacionCumpleEncuestas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-_empmora" class="md-nav__link">
+    <span class="md-ellipsis">
+      52. _#EmpMora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-_empmoranotificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      53. _#EmpMoraNotificacion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-_empmora" class="md-nav__link">
+    <span class="md-ellipsis">
+      54. _%EmpMora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-_empmora" class="md-nav__link">
+    <span class="md-ellipsis">
+      55. _$EmpMora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-_empresasmorosas" class="md-nav__link">
+    <span class="md-ellipsis">
+      56. _empresasMorosas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-_indicadorcarterarecuperada" class="md-nav__link">
+    <span class="md-ellipsis">
+      57. _indicadorCarteraRecuperada
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58-_indicadorcarterarecuperadaano" class="md-nav__link">
+    <span class="md-ellipsis">
+      58. _indicadorCarteraRecuperada(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-_mora_presuntaano" class="md-nav__link">
+    <span class="md-ellipsis">
+      59. _Mora_presunta(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#60-_recuperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      60. _Recuperado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61-_recuperado_presunto" class="md-nav__link">
+    <span class="md-ellipsis">
+      61. _Recuperado_presunto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-empnotificadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      62. %EmpNotificadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-_recobros" class="md-nav__link">
+    <span class="md-ellipsis">
+      63. _#Recobros
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-_poblacionrecobro" class="md-nav__link">
+    <span class="md-ellipsis">
+      64. _%PoblacionRecobro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-rural" class="md-nav__link">
+    <span class="md-ellipsis">
+      65. %rural
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-norural" class="md-nav__link">
+    <span class="md-ellipsis">
+      66. %noRural
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-_metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      67. _Metricas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-_encuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      68. _#Encuestas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-_polaridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      69. _%Polaridad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#70-_calificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      70. _Calificacion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#71-_cumplimientoafiliacionesencuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      71. _cumplimientoAfiliacionesEncuestas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-_satisfaccionmesactualvsanterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      72. _satisfaccionMesActualvsAnterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-_satisfaccionmesactualvsanteriorano" class="md-nav__link">
+    <span class="md-ellipsis">
+      73. _satisfaccionMesActualvsAnterior(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#74-_tamanomuestra" class="md-nav__link">
+    <span class="md-ellipsis">
+      74. _TamañoMuestra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-_metricas_tabla_afil" class="md-nav__link">
+    <span class="md-ellipsis">
+      75. _Metricas_tabla_afil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#76-_metricas_tabla_apo" class="md-nav__link">
+    <span class="md-ellipsis">
+      76. _Metricas_tabla_apo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#77-_totalagrupadorvalormensual" class="md-nav__link">
+    <span class="md-ellipsis">
+      77. _totalAgrupadorValorMensual
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#78-_calificacionformato" class="md-nav__link">
+    <span class="md-ellipsis">
+      78. _calificacionFormato
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#79-_empsiafiliadasformato" class="md-nav__link">
+    <span class="md-ellipsis">
+      79. _$EmpSiAfiliadasFormato
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#80-_totalintereses" class="md-nav__link">
+    <span class="md-ellipsis">
+      80. _totalIntereses
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#81-_empnoafiliadasformato" class="md-nav__link">
+    <span class="md-ellipsis">
+      81. _$EmpNoAfiliadasFormato
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-_recuperadoformato" class="md-nav__link">
+    <span class="md-ellipsis">
+      82. _RecuperadoFormato
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-_totalmontopresuncion" class="md-nav__link">
+    <span class="md-ellipsis">
+      83. _totalMontoPresuncion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-_recuperado_presunto_formato" class="md-nav__link">
+    <span class="md-ellipsis">
+      84. _Recuperado_presunto_formato
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-_trxdescuentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      85. _trxDescuentos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-_totalprescripcion" class="md-nav__link">
+    <span class="md-ellipsis">
+      86. _totalPrescripcion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87-_montoabonado" class="md-nav__link">
+    <span class="md-ellipsis">
+      87. _montoAbonado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#88-_beneficiarioscuotaformato" class="md-nav__link">
+    <span class="md-ellipsis">
+      88. _beneficiariosCuotaFormato
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#89-_afiliaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      89. _#afiliaciones
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.2_campos_calculados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Campos Calculados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.3_menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Menú
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.4_rendimiento_afiliacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Rendimiento del Proceso de Afiliación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.5_rendimiento_aportes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Rendimiento del Proceso de Aportes (Empresas)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.6_rendimiento_cuota/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Rendimiento del Proceso de Cuota Monetaria
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.7_tactico/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Táctico
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.8_seguimiento_indicadores/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Seguimiento de Indicadores Operativos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-_muestra" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. _muestra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-_erroresafiliaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. _#ErroresAfiliaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-_desafiliaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. _%desafiliaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-_erroresafiliaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. _%ErroresAfiliaciones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-_erroresafilpoblacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. _%ErroresAfilPoblacion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-_pardesafiliacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. _%ParDesafiliacion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-_incmesactualvsanteriorafilmesanterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. _incMesActualvsAnteriorAfilMesAnterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-_incmesactualvsanteriorafilmesanteriorano" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. _incMesActualvsAnteriorAfilMesAnterior(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-_incmesactualvsanteriorafilnuevas" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. _incMesActualvsAnteriorAfilNuevas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-_incmesactualvsanteriorafilnuevasano" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. _incMesActualvsAnteriorAfilNuevas(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-_incrementodesafimesactualvsanterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. _incrementoDesafiMesActualvsAnterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-_incrementodesafimesactualvsanteriorano" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. _incrementoDesafiMesActualvsAnterior(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-_indicadorcumplimientoafiliacionestrab" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. _IndicadorCumplimientoAfiliacionesTrab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-_indicadornocumplimientoafiliacionestrab" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. _IndicadorNoCumplimientoAfiliacionesTrab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-_totalafiliados" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. _totalAfiliados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-_indicadorafiloportunasemp" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. _indicadorAfilOportunasEmp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-_indicadorafiloportunastrab" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. _indicadorAfilOportunasTrab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-_indicadornoafiloportunasemp" class="md-nav__link">
+    <span class="md-ellipsis">
+      18. _indicadorNoAfilOportunasEmp
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-_indicadornoafiloportunastrab" class="md-nav__link">
+    <span class="md-ellipsis">
+      19. _indicadorNoAfilOportunasTrab
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-_empnoafiliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      20. _#EmpNoAfiliadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-_empnoafiliadasano" class="md-nav__link">
+    <span class="md-ellipsis">
+      21. _#EmpNoAfiliadas(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-_empnoafiliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      22. _$EmpNoAfiliadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-_empsiafiliadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      23. _$EmpSiAfiliadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-_aportesactualvsanteriorano" class="md-nav__link">
+    <span class="md-ellipsis">
+      24. _aportesActualvsAnterior(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-_incmesactualvsanterioraportesafilmesanterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      25. _incMesActualvsAnteriorAportesAfilMesAnterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-_incmesactualvsanterioraportesafilmesanteriorano" class="md-nav__link">
+    <span class="md-ellipsis">
+      26. _incMesActualvsAnteriorAportesAfilMesAnterior(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-_incmesactualvsanterioraportesafilperiodo" class="md-nav__link">
+    <span class="md-ellipsis">
+      27. _incMesActualvsAnteriorAportesAfilPeriodo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-_incmesactualvsanterioraportesafilperiodoano" class="md-nav__link">
+    <span class="md-ellipsis">
+      28. _incMesActualvsAnteriorAportesAfilPeriodo(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-_incmesactualvsanterioraportesnoafil" class="md-nav__link">
+    <span class="md-ellipsis">
+      29. _incMesActualvsAnteriorAportesNoAfil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30-_incmesactualvsanterioraportesnoafilano" class="md-nav__link">
+    <span class="md-ellipsis">
+      30. _incMesActualvsAnteriorAportesNoAfil(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#31-_incmesactualvsanterioraportesrecmora" class="md-nav__link">
+    <span class="md-ellipsis">
+      31. _incMesActualvsAnteriorAportesRecMora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-_incmesactualvsanterioraportesrecmoraano" class="md-nav__link">
+    <span class="md-ellipsis">
+      32. _incMesActualvsAnteriorAportesRecMora(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-_incmesactualvsanterioraportesrecmorapres" class="md-nav__link">
+    <span class="md-ellipsis">
+      33. _incMesActualvsAnteriorAportesRecMoraPres
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-_incmesactualvsanterioraportesrecmorapresano" class="md-nav__link">
+    <span class="md-ellipsis">
+      34. _incMesActualvsAnteriorAportesRecMoraPres(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-_indicadoraportesactualvsanterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      35. _indicadorAportesActualvsAnterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-_indicadorproyeccionvaloraporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      36. _indicadorProyeccionValorAporte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-_indicadornoproyeccionvaloraporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      37. _indicadorNoProyeccionValorAporte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#38-_total_aportes" class="md-nav__link">
+    <span class="md-ellipsis">
+      38. _Total_aportes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#39-aporempafil" class="md-nav__link">
+    <span class="md-ellipsis">
+      39. %AporEmpAfil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#40-aporempnoafil" class="md-nav__link">
+    <span class="md-ellipsis">
+      40. %AporEmpNoAfil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-_cuotas" class="md-nav__link">
+    <span class="md-ellipsis">
+      41. _#Cuotas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-_beneficiarioscuota" class="md-nav__link">
+    <span class="md-ellipsis">
+      42. _beneficiariosCuota
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-_girospagados" class="md-nav__link">
+    <span class="md-ellipsis">
+      43. _girosPagados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-_incrementocmmesactualvsanterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      44. _incrementoCMMesActualvsAnterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-_incrementocmmesactualvsanteriorano" class="md-nav__link">
+    <span class="md-ellipsis">
+      45. _incrementoCMMesActualvsAnterior(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#46-_indicadorcalidadpagocm" class="md-nav__link">
+    <span class="md-ellipsis">
+      46. _indicadorCalidadPagoCM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#47-_indicadoroportunidadpagocm" class="md-nav__link">
+    <span class="md-ellipsis">
+      47. _indicadorOportunidadPagoCM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#48-_bencuota" class="md-nav__link">
+    <span class="md-ellipsis">
+      48. _#benCuota
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#49-_procuatrimestre" class="md-nav__link">
+    <span class="md-ellipsis">
+      49. _ProCuatrimestre
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#50-_progiroxpersona" class="md-nav__link">
+    <span class="md-ellipsis">
+      50. _ProGiroxPersona
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-_validacioncumpleencuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      51. _ValidacionCumpleEncuestas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-_empmora" class="md-nav__link">
+    <span class="md-ellipsis">
+      52. _#EmpMora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-_empmoranotificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      53. _#EmpMoraNotificacion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-_empmora" class="md-nav__link">
+    <span class="md-ellipsis">
+      54. _%EmpMora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-_empmora" class="md-nav__link">
+    <span class="md-ellipsis">
+      55. _$EmpMora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-_empresasmorosas" class="md-nav__link">
+    <span class="md-ellipsis">
+      56. _empresasMorosas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57-_indicadorcarterarecuperada" class="md-nav__link">
+    <span class="md-ellipsis">
+      57. _indicadorCarteraRecuperada
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58-_indicadorcarterarecuperadaano" class="md-nav__link">
+    <span class="md-ellipsis">
+      58. _indicadorCarteraRecuperada(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-_mora_presuntaano" class="md-nav__link">
+    <span class="md-ellipsis">
+      59. _Mora_presunta(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#60-_recuperado" class="md-nav__link">
+    <span class="md-ellipsis">
+      60. _Recuperado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61-_recuperado_presunto" class="md-nav__link">
+    <span class="md-ellipsis">
+      61. _Recuperado_presunto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-empnotificadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      62. %EmpNotificadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-_recobros" class="md-nav__link">
+    <span class="md-ellipsis">
+      63. _#Recobros
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-_poblacionrecobro" class="md-nav__link">
+    <span class="md-ellipsis">
+      64. _%PoblacionRecobro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-rural" class="md-nav__link">
+    <span class="md-ellipsis">
+      65. %rural
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-norural" class="md-nav__link">
+    <span class="md-ellipsis">
+      66. %noRural
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-_metricas" class="md-nav__link">
+    <span class="md-ellipsis">
+      67. _Metricas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-_encuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      68. _#Encuestas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-_polaridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      69. _%Polaridad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#70-_calificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      70. _Calificacion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#71-_cumplimientoafiliacionesencuestas" class="md-nav__link">
+    <span class="md-ellipsis">
+      71. _cumplimientoAfiliacionesEncuestas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-_satisfaccionmesactualvsanterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      72. _satisfaccionMesActualvsAnterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-_satisfaccionmesactualvsanteriorano" class="md-nav__link">
+    <span class="md-ellipsis">
+      73. _satisfaccionMesActualvsAnterior(Año)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#74-_tamanomuestra" class="md-nav__link">
+    <span class="md-ellipsis">
+      74. _TamañoMuestra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-_metricas_tabla_afil" class="md-nav__link">
+    <span class="md-ellipsis">
+      75. _Metricas_tabla_afil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#76-_metricas_tabla_apo" class="md-nav__link">
+    <span class="md-ellipsis">
+      76. _Metricas_tabla_apo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#77-_totalagrupadorvalormensual" class="md-nav__link">
+    <span class="md-ellipsis">
+      77. _totalAgrupadorValorMensual
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#78-_calificacionformato" class="md-nav__link">
+    <span class="md-ellipsis">
+      78. _calificacionFormato
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#79-_empsiafiliadasformato" class="md-nav__link">
+    <span class="md-ellipsis">
+      79. _$EmpSiAfiliadasFormato
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#80-_totalintereses" class="md-nav__link">
+    <span class="md-ellipsis">
+      80. _totalIntereses
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#81-_empnoafiliadasformato" class="md-nav__link">
+    <span class="md-ellipsis">
+      81. _$EmpNoAfiliadasFormato
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-_recuperadoformato" class="md-nav__link">
+    <span class="md-ellipsis">
+      82. _RecuperadoFormato
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-_totalmontopresuncion" class="md-nav__link">
+    <span class="md-ellipsis">
+      83. _totalMontoPresuncion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-_recuperado_presunto_formato" class="md-nav__link">
+    <span class="md-ellipsis">
+      84. _Recuperado_presunto_formato
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-_trxdescuentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      85. _trxDescuentos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-_totalprescripcion" class="md-nav__link">
+    <span class="md-ellipsis">
+      86. _totalPrescripcion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87-_montoabonado" class="md-nav__link">
+    <span class="md-ellipsis">
+      87. _montoAbonado
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#88-_beneficiarioscuotaformato" class="md-nav__link">
+    <span class="md-ellipsis">
+      88. _beneficiariosCuotaFormato
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#89-_afiliaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      89. _#afiliaciones
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="indicadores-y-medidas-calculadas">Indicadores y Medidas Calculadas<a class="headerlink" href="#indicadores-y-medidas-calculadas" title="Permanent link">&para;</a></h1>
+<p>A continuación, se presentan los indicadores y medidas calculadas, junto con su descripción, fórmula y meta (si aplica).</p>
+<hr />
+<h4 id="1-_muestra"><strong>1. _muestra</strong><a class="headerlink" href="#1-_muestra" title="Permanent link">&para;</a></h4>
+<p>Descripción: Cálculo del total de muestras a revisar en el proceso de grabación.<br />
+Fórmula: 
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="w"> </span><span class="nb">VAR</span><span class="w"> </span>formula = (SUM( &#39;ErroresGrabación&#39;[Muestra a revisar] ) / DISTINCTCOUNT (&#39;ErroresGrabación&#39;[Error] )) 
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="2-_erroresafiliaciones"><strong>2. _#ErroresAfiliaciones</strong><a class="headerlink" href="#2-_erroresafiliaciones" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de errores de grabación encontrados en la muestra a verificar.<br />
+Fórmula: 
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="w"> </span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="na">&#39;ErroresGrabación&#39;[NumErrores]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="na">&#39;ErroresGrabación&#39;[NumErrores]</span><span class="p">))</span>
+</code></pre></div></p>
+<hr />
+<h4 id="3-_desafiliaciones"><strong>3. _%desafiliaciones</strong><a class="headerlink" href="#3-_desafiliaciones" title="Permanent link">&para;</a></h4>
+<p>Descripción: Participación porcentual de desafiliación por motivo.<br />
+Fórmula: 
+<div class="highlight"><pre><span></span><code><span class="nf">SUM</span><span class="p">(</span><span class="na">Historico[seRetiro]</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="na">Historico[seRetiro]</span><span class="p">),</span><span class="w"> </span><span class="nf">REMOVEFILTERS</span><span class="p">(</span><span class="na">EstadosDim[detest]</span><span class="p">))</span>
+</code></pre></div></p>
+<hr />
+<h4 id="4-_erroresafiliaciones"><strong>4. _%ErroresAfiliaciones</strong><a class="headerlink" href="#4-_erroresafiliaciones" title="Permanent link">&para;</a></h4>
+<p>Descripción: Porcentaje de errores de grabación encontrados en relación con la muestra validada.<br />
+Fórmula: 
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="w"> </span><span class="nb">VAR</span><span class="w"> </span>formula = (SUM( &#39;ErroresGrabación&#39;[NumErrores] ) / (SUM( &#39;ErroresGrabación&#39;[Muestra a revisar] ) / DISTINCTCOUNT (&#39;ErroresGrabación&#39;[Error] ))) 
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="5-_erroresafilpoblacion"><strong>5. _%ErroresAfilPoblacion</strong><a class="headerlink" href="#5-_erroresafilpoblacion" title="Permanent link">&para;</a></h4>
+<p>Descripción: Proyección de errores potenciales en formularios analizados.<br />
+Fórmula: 
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="w"> </span><span class="nb">VAR</span><span class="w"> </span>formula = ( VAR pob_afiliada = CALCULATE( sum(Historico[seAfilio] ), OR( Historico[Tipo] = &quot;Trabajador&quot;, Historico[Tipo] = &quot;Beneficiario&quot;)) 
+<span class="nb">VAR</span><span class="w"> </span>total_errores = SUM(&#39;ErroresGrabación&#39;[NumErrores] ) 
+<span class="nb">VAR</span><span class="w"> </span>muestra = SUM( &#39;ErroresGrabación&#39;[Muestra a revisar] ) / DISTINCTCOUNT (&#39;ErroresGrabación&#39;[Error] ) 
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="w"> </span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="w"> </span>pob_afiliada * total_errores ) / muestra), &quot;-&quot;, (( pob_afiliada * total_errores ) / muestra))) 
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="6-_pardesafiliacion"><strong>6. _%ParDesafiliacion</strong><a class="headerlink" href="#6-_pardesafiliacion" title="Permanent link">&para;</a></h4>
+<p>Descripción: Participación de la desafiliación en relación con el total de afiliaciones.<br />
+Fórmula: 
+<div class="highlight"><pre><span></span><code><span class="nf">CALCULATE</span><span class="p">(</span><span class="w"> </span><span class="nf">DISTINCTCOUNT</span><span class="p">(</span><span class="na">Historico[cod]</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="na">Historico[seRetiro]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">DISTINCTCOUNT</span><span class="p">(</span><span class="na">Historico[cod]</span><span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="7-_incmesactualvsanteriorafilmesanterior"><strong>7. _incMesActualvsAnteriorAfilMesAnterior</strong><a class="headerlink" href="#7-_incmesactualvsanteriorafilmesanterior" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación entre el periodo de estudio y el anterior para individuos activos.<br />
+Fórmula: 
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="w"> </span><span class="nb">VAR</span><span class="w"> </span>formula = ( VAR periodoActual = MAX( Periodos[periodo] ) 
+<span class="nb">VAR</span><span class="w"> </span>periodoAnterior = CALCULATE( MAX( Periodos[periodo] ), ALL(Periodos), Periodos[periodo] &lt; periodoActual ) 
+<span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE( DISTINCTCOUNT( Historico[cod] ) - CALCULATE( SUM( Historico[seAfilio])), ALL(Periodos) , Periodos[periodo] = periodoAnterior ) 
+<span class="nb">RETURN</span><span class="w"> </span><span class="p">(</span><span class="nf">DISTINCTCOUNT</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[cod]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[seAfilio]</span><span class="p">))</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>afilAnt ) / afilAnt) 
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="8-_incmesactualvsanteriorafilmesanteriorano"><strong>8. _incMesActualvsAnteriorAfilMesAnterior(Año)</strong><a class="headerlink" href="#8-_incmesactualvsanteriorafilmesanteriorano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el mismo periodo año anterior para los individuos activos en el mes anterior.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="w"> </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>periodoAnoAnterior = (LEFT( periodoActual, 4 ) - 1) * 100 + RIGHT( periodoActual, 2)
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">        </span><span class="nf">DISTINCTCOUNT</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[cod]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[seAfilio]</span><span class="w"> </span><span class="p">)),</span>
+<span class="w">        </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">        </span><span class="nf">VALUE</span><span class="p">(</span><span class="na">Periodos[periodo]</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnoAnterior
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>afilAnt), BLANK(), (DISTINCTCOUNT( Historico[cod] ) -
+<span class="w">    </span><span class="nf">CALCULATE</span><span class="p">(</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[seAfilio]</span><span class="w"> </span><span class="p">))</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>afilAnt ) / afilAnt )
+<span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="9-_incmesactualvsanteriorafilnuevas"><strong>9. _incMesActualvsAnteriorAfilNuevas</strong><a class="headerlink" href="#9-_incmesactualvsanteriorafilnuevas" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el periodo anterior para los individuos que se afiliaron en el periodo de estudio.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="w"> </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>periodoAnterior = CALCULATE(
+<span class="w">        </span><span class="nf">MAX</span><span class="p">(</span><span class="w"> </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">        </span><span class="na">Periodos[periodo]</span><span class="w"> </span>&lt; periodoActual
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">        </span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[seAfilio]</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">        </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnterior
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[seAfilio]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>afilAnt ) / afilAnt
+<span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="10-_incmesactualvsanteriorafilnuevasano"><strong>10. _incMesActualvsAnteriorAfilNuevas(Año)</strong><a class="headerlink" href="#10-_incmesactualvsanteriorafilnuevasano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el mismo periodo año anterior para los individuos que se afiliaron en el periodo de estudio.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="w"> </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>periodoAnoAnterior = (LEFT( periodoActual, 4 ) - 1) * 100 + RIGHT( periodoActual, 2)
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">        </span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[seAfilio]</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">        </span><span class="nf">VALUE</span><span class="p">(</span><span class="na">Periodos[periodo]</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnoAnterior
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>afilAnt), BLANK(), (SUM( Historico[seAfilio] ) - afilAnt ) / afilAnt )
+<span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="11-_incrementodesafimesactualvsanterior"><strong>11. _incrementoDesafiMesActualvsAnterior</strong><a class="headerlink" href="#11-_incrementodesafimesactualvsanterior" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el periodo anterior para las desafiliaciones.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="w"> </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>periodoAnterior = CALCULATE(
+<span class="w">        </span><span class="nf">MAX</span><span class="p">(</span><span class="w"> </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">        </span><span class="na">Periodos[periodo]</span><span class="w"> </span>&lt; periodoActual
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">        </span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[seRetiro]</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">        </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnterior
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[seRetiro]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>afilAnt ) / afilAnt
+<span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="12-_incrementodesafimesactualvsanteriorano"><strong>12. _incrementoDesafiMesActualvsAnterior(Año)</strong><a class="headerlink" href="#12-_incrementodesafimesactualvsanteriorano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el mismo periodo año anterior para las desafiliaciones.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="w"> </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[Periodo] )
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>periodoAnoAnterior = (LEFT( periodoActual, 4 ) - 1) * 100 + RIGHT( periodoActual, 2)
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">        </span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[seRetiro]</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">        </span><span class="nf">VALUE</span><span class="p">(</span><span class="na">Periodos[Periodo]</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnoAnterior
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>afilAnt), BLANK(), (SUM( Historico[seRetiro] ) - afilAnt ) / afilAnt )
+<span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="13-_indicadorcumplimientoafiliacionestrab"><strong>13. _IndicadorCumplimientoAfiliacionesTrab</strong><a class="headerlink" href="#13-_indicadorcumplimientoafiliacionestrab" title="Permanent link">&para;</a></h4>
+<p>Descripción: Relación entre el total de afiliaciones de trabajadores completamente nuevos y proyección anual.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">CALCULATE</span><span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[seAfilio]</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="na">Historico[nuevo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="na">Historico[Tipo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Trabajador&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="na">[_proyectadoAfiliacionesTrab]</span>
+</code></pre></div>
+Meta: 87.200</p>
+<hr />
+<h4 id="14-_indicadornocumplimientoafiliacionestrab"><strong>14. _IndicadorNoCumplimientoAfiliacionesTrab</strong><a class="headerlink" href="#14-_indicadornocumplimientoafiliacionestrab" title="Permanent link">&para;</a></h4>
+<p>Descripción: Porcentaje de no cumplimiento en la cobertura de proyección trabajadores.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="na">[_IndicadorCumplimientoAfiliacionesTrab]</span>
+</code></pre></div></p>
+<hr />
+<h4 id="15-_totalafiliados"><strong>15. _totalAfiliados</strong><a class="headerlink" href="#15-_totalafiliados" title="Permanent link">&para;</a></h4>
+<p>Descripción: Número de individuos que continúan o estuvieron afiliados en el mes.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="w"> </span><span class="nb">VAR</span><span class="w"> </span>formula = (DISTINCTCOUNT( Historico[cod] ))
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="16-_indicadorafiloportunasemp"><strong>16. _indicadorAfilOportunasEmp</strong><a class="headerlink" href="#16-_indicadorafiloportunasemp" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de afiliaciones de empresas gestionadas dentro del ANS.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">COUNTROWS</span><span class="p">(</span><span class="w"> </span>HistoricoANS ),
+<span class="w">    </span><span class="nf">FILTER</span><span class="p">(</span>HistoricoANS, HistoricoANS[c_ANS] = &quot;Dentro de Ans&quot; &amp;&amp; HistoricoANS[Tipo] = &quot;Empresa&quot;),
+<span class="w">    </span><span class="nf">REMOVEFILTERS</span><span class="p">(</span><span class="na">Historico[Tipo]</span><span class="p">)</span>
+<span class="p">)</span><span class="w"> </span><span class="o">/</span>
+<span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">COUNTROWS</span><span class="p">(</span><span class="w"> </span>HistoricoANS ),
+<span class="w">    </span><span class="nf">FILTER</span><span class="p">(</span>HistoricoANS, HistoricoANS[Tipo] = &quot;Empresa&quot;),
+<span class="w">    </span><span class="nf">REMOVEFILTERS</span><span class="p">(</span><span class="na">Historico[Tipo]</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+Meta: 90%</p>
+<hr />
+<h4 id="17-_indicadorafiloportunastrab"><strong>17. _indicadorAfilOportunasTrab</strong><a class="headerlink" href="#17-_indicadorafiloportunastrab" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de afiliaciones de trabajadores gestionadas dentro del ANS.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">COUNTROWS</span><span class="p">(</span><span class="w"> </span>HistoricoANS ),
+<span class="w">    </span><span class="nf">FILTER</span><span class="p">(</span>HistoricoANS, HistoricoANS[c_ANS] = &quot;Dentro de Ans&quot; &amp;&amp; HistoricoANS[Tipo] = &quot;Trabajador&quot;),
+<span class="w">    </span><span class="nf">REMOVEFILTERS</span><span class="p">(</span><span class="na">Historico[Tipo]</span><span class="p">)</span>
+<span class="p">)</span><span class="w"> </span><span class="o">/</span>
+<span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">COUNTROWS</span><span class="p">(</span><span class="w"> </span>HistoricoANS ),
+<span class="w">    </span><span class="nf">FILTER</span><span class="p">(</span>HistoricoANS, HistoricoANS[Tipo] = &quot;Trabajador&quot;),
+<span class="w">    </span><span class="nf">REMOVEFILTERS</span><span class="p">(</span><span class="na">Historico[Tipo]</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+Meta: 75%</p>
+<hr />
+<h4 id="18-_indicadornoafiloportunasemp"><strong>18. _indicadorNoAfilOportunasEmp</strong><a class="headerlink" href="#18-_indicadornoafiloportunasemp" title="Permanent link">&para;</a></h4>
+<p>Descripción: Porcentaje de no cumplimiento afiliaciones oportunas empresas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="na">[_indicadorAfilOportunasEmp]</span>
+</code></pre></div></p>
+<hr />
+<h4 id="19-_indicadornoafiloportunastrab"><strong>19. _indicadorNoAfilOportunasTrab</strong><a class="headerlink" href="#19-_indicadornoafiloportunastrab" title="Permanent link">&para;</a></h4>
+<p>Descripción: Porcentaje de no cumplimiento afiliaciones oportunas trabajadores.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="na">[_indicadorAfilOportunasTrab]</span>
+</code></pre></div></p>
+<hr />
+<h4 id="20-_empnoafiliadas"><strong>20. _#EmpNoAfiliadas</strong><a class="headerlink" href="#20-_empnoafiliadas" title="Permanent link">&para;</a></h4>
+<p>Descripción: Empresas no afiliadas que aportaron en el periodo de estudio.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>per = SELECTEDVALUE( Periodos[Periodo] )
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">            </span><span class="nf">DISTINCTCOUNT</span><span class="p">(</span><span class="na">HistoricoAportesEmp[nit]</span><span class="p">),</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="na">HistoricoAportesEmp[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>per,
+<span class="w">            </span><span class="na">HistoricoAportesEmp[NoAfil]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nf">REMOVEFILTERS</span><span class="p">(</span><span class="na">Historico[validador]</span><span class="p">,</span><span class="w"> </span><span class="na">Historico[Tipo]</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="21-_empnoafiliadasano"><strong>21. _#EmpNoAfiliadas(Año)</strong><a class="headerlink" href="#21-_empnoafiliadasano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Empresas no afiliadas que aportaron en el año.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>per = SELECTEDVALUE( Periodos[Año] )
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">            </span><span class="nf">DISTINCTCOUNT</span><span class="p">(</span><span class="na">HistoricoAportesEmp[nit]</span><span class="p">),</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="na">HistoricoAportesEmp[Año]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>per,
+<span class="w">            </span><span class="na">HistoricoAportesEmp[NoAfil]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="22-_empnoafiliadas"><strong>22. _$EmpNoAfiliadas</strong><a class="headerlink" href="#22-_empnoafiliadas" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de aportes recibidos en el mes de empresas no afiliadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>per = SELECTEDVALUE( Periodos[periodo] )
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">),</span>
+<span class="w">    </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">    </span><span class="nf">REMOVEFILTERS</span><span class="p">(</span><span class="na">Historico[validador]</span><span class="p">),</span>
+<span class="w">    </span><span class="na">HistoricoAportesEmp[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>per,
+<span class="w">    </span><span class="na">HistoricoAportesEmp[NoAfil]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="23-_empsiafiliadas"><strong>23. _$EmpSiAfiliadas</strong><a class="headerlink" href="#23-_empsiafiliadas" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de aportes recibidos en el mes de empresas afiliadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="24-_aportesactualvsanteriorano"><strong>24. _aportesActualvsAnterior(Año)</strong><a class="headerlink" href="#24-_aportesactualvsanteriorano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Relación entre el total de aportes recibidos en el año con respecto al año anterior.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>anoAn = VALUE(MAX(Periodos[Año])) - 1
+<span class="nb">VAR</span><span class="w"> </span>devAn = CALCULATE(
+<span class="w">    </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">[</span>_$EmpNoAfiliadas(Año)],
+<span class="w">    </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">    </span><span class="nf">VALUE</span><span class="p">(</span><span class="na">Periodos[Año]</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>anoAn
+<span class="p">)</span>
+<span class="nb">VAR</span><span class="w"> </span>devAc = SUM(HistoricoAportesEmp[valorpag]) + [_$EmpNoAfiliadas(Año)]
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>devAn), BLANK(), (devAc - devAn) / devAn)
+</code></pre></div></p>
+<hr />
+<h4 id="25-_incmesactualvsanterioraportesafilmesanterior"><strong>25. _incMesActualvsAnteriorAportesAfilMesAnterior</strong><a class="headerlink" href="#25-_incmesactualvsanterioraportesafilmesanterior" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el periodo anterior del comportamiento de aportes de afiliados activos en el mes anterior.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoAnterior = CALCULATE(
+<span class="w">            </span><span class="nf">MAX</span><span class="p">(</span><span class="w"> </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="p">),</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="na">Periodos[periodo]</span><span class="w"> </span>&lt; periodoActual
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">            </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">),</span>
+<span class="w">            </span><span class="na">Historico[seAfilio]</span><span class="w"> </span>&lt;&gt; 1,
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnterior
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>afilAnt) / afilAnt
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="26-_incmesactualvsanterioraportesafilmesanteriorano"><strong>26. _incMesActualvsAnteriorAportesAfilMesAnterior(Año)</strong><a class="headerlink" href="#26-_incmesactualvsanterioraportesafilmesanteriorano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el mismo periodo año anterior del comportamiento de aportes de afiliados activos en el mes anterior.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoAnoAnterior = (LEFT( periodoActual, 4 ) - 1) * 100 + RIGHT( periodoActual, 2)
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">            </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">),</span>
+<span class="w">            </span><span class="na">Historico[seAfilio]</span><span class="w"> </span>&lt;&gt; 1,
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="nf">VALUE</span><span class="p">(</span><span class="na">Periodos[periodo]</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnoAnterior
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>afilAnt) / afilAnt
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="27-_incmesactualvsanterioraportesafilperiodo"><strong>27. _incMesActualvsAnteriorAportesAfilPeriodo</strong><a class="headerlink" href="#27-_incmesactualvsanterioraportesafilperiodo" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el periodo anterior del total de aportes recibidos de empresas afiliadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoAnterior = CALCULATE(
+<span class="w">            </span><span class="nf">MAX</span><span class="p">(</span><span class="w"> </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="p">),</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="na">Periodos[periodo]</span><span class="w"> </span>&lt; periodoActual
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">            </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">),</span>
+<span class="w">            </span><span class="na">Historico[seAfilio]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnterior
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>afilAnt) / afilAnt
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="28-_incmesactualvsanterioraportesafilperiodoano"><strong>28. _incMesActualvsAnteriorAportesAfilPeriodo(Año)</strong><a class="headerlink" href="#28-_incmesactualvsanterioraportesafilperiodoano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el mismo periodo año anterior del total de aportes recibidos de empresas afiliadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoAnoAnterior = (LEFT( periodoActual, 4 ) - 1) * 100 + RIGHT( periodoActual, 2)
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">            </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">),</span>
+<span class="w">            </span><span class="na">Historico[seAfilio]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="nf">VALUE</span><span class="p">(</span><span class="na">Periodos[periodo]</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnoAnterior
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>afilAnt), BLANK(), (SUM(HistoricoAportesEmp[valorpag]) - afilAnt) / afilAnt)
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="29-_incmesactualvsanterioraportesnoafil"><strong>29. _incMesActualvsAnteriorAportesNoAfil</strong><a class="headerlink" href="#29-_incmesactualvsanterioraportesnoafil" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el periodo anterior de los aportes de empresas no afiliadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>periodoAnterior = CALCULATE(
+<span class="w">        </span><span class="nf">MAX</span><span class="p">(</span><span class="w"> </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="p">),</span>
+<span class="w">        </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">        </span><span class="na">Periodos[periodo]</span><span class="w"> </span>&lt; periodoActual
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">        </span><span class="p">[</span>_$EmpNoAfiliadas],
+<span class="w">        </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">        </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnterior
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="p">([</span>_$EmpNoAfiliadas] - afilAnt) / afilAnt,
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="30-_incmesactualvsanterioraportesnoafilano"><strong>30. _incMesActualvsAnteriorAportesNoAfil(Año)</strong><a class="headerlink" href="#30-_incmesactualvsanterioraportesnoafilano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el mismo periodo año anterior de los aportes de empresas no afiliadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoAnoAnterior = (LEFT( periodoActual, 4 ) - 1) * 100 + RIGHT( periodoActual, 2)
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">            </span><span class="p">[</span>_$EmpNoAfiliadas],
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="nf">VALUE</span><span class="p">(</span><span class="na">Periodos[periodo]</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnoAnterior
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>afilAnt), BLANK(), ([_$EmpNoAfiliadas] - afilAnt) / afilAnt)
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="31-_incmesactualvsanterioraportesrecmora"><strong>31. _incMesActualvsAnteriorAportesRecMora</strong><a class="headerlink" href="#31-_incmesactualvsanterioraportesrecmora" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el periodo anterior de los aportes recuperados por mora real de empresas en convenio.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoAnterior = CALCULATE(
+<span class="w">            </span><span class="nf">MAX</span><span class="p">(</span><span class="w"> </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="p">),</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="na">Periodos[periodo]</span><span class="w"> </span>&lt; periodoActual
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">            </span><span class="na">[_Recuperado]</span><span class="p">,</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnterior
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="p">(</span><span class="na">[_Recuperado]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>afilAnt) / afilAnt
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="32-_incmesactualvsanterioraportesrecmoraano"><strong>32. _incMesActualvsAnteriorAportesRecMora(Año)</strong><a class="headerlink" href="#32-_incmesactualvsanterioraportesrecmoraano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el mismo periodo año anterior de los aportes recuperados por mora real de empresas en convenio.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoAnoAnterior = (LEFT( periodoActual, 4 ) - 1) * 100 + RIGHT( periodoActual, 2)
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">            </span><span class="na">[_Recuperado]</span><span class="p">,</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="nf">VALUE</span><span class="p">(</span><span class="na">Periodos[periodo]</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnoAnterior
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>afilAnt), BLANK(), ([_Recuperado] - afilAnt) / afilAnt)
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="33-_incmesactualvsanterioraportesrecmorapres"><strong>33. _incMesActualvsAnteriorAportesRecMoraPres</strong><a class="headerlink" href="#33-_incmesactualvsanterioraportesrecmorapres" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el periodo anterior de los aportes recuperados por mora presunta.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoAnterior = CALCULATE(
+<span class="w">            </span><span class="nf">MAX</span><span class="p">(</span><span class="w"> </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="p">),</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="na">Periodos[periodo]</span><span class="w"> </span>&lt; periodoActual
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">            </span><span class="na">[_Recuperado_presunto]</span><span class="p">,</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnterior
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="p">(</span><span class="na">[_Recuperado_presunto]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>afilAnt) / afilAnt
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="34-_incmesactualvsanterioraportesrecmorapresano"><strong>34. _incMesActualvsAnteriorAportesRecMoraPres(Año)</strong><a class="headerlink" href="#34-_incmesactualvsanterioraportesrecmorapresano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el mismo periodo año anterior de los aportes recuperados por mora presunta.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX( Periodos[periodo] )
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoAnoAnterior = (LEFT( periodoActual, 4 ) - 1) * 100 + RIGHT( periodoActual, 2)
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">            </span><span class="na">[_Recuperado_presunto]</span><span class="p">,</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="nf">VALUE</span><span class="p">(</span><span class="na">Periodos[periodo]</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnoAnterior
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>afilAnt), BLANK(), ([_Recuperado_presunto] - afilAnt) / afilAnt)
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="35-_indicadoraportesactualvsanterior"><strong>35. _indicadorAportesActualvsAnterior</strong><a class="headerlink" href="#35-_indicadoraportesactualvsanterior" title="Permanent link">&para;</a></h4>
+<p>Descripción: Relación entre el total de aportes recibidos en el mes con respecto al mes anterior.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>Anio = VALUE( MAX( Periodos[Año] ) )
+<span class="nb">VAR</span><span class="w"> </span>mes = VALUE( RIGHT( MAX(Periodos[Periodo]), 2 ) )
+<span class="nb">VAR</span><span class="w"> </span>perAn = IF(mes = 1, (Anio - 1) * 100 + 12, Anio * 100 + (mes - 1))
+
+<span class="nb">VAR</span><span class="w"> </span>devAn = CALCULATE(
+<span class="w">    </span><span class="p">[</span>_$EmpSiAfiliadas] + [_$EmpNoAfiliadas],
+<span class="w">    </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">    </span><span class="nf">VALUE</span><span class="p">(</span><span class="na">Periodos[periodo]</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>perAn
+<span class="p">)</span>
+<span class="nb">VAR</span><span class="w"> </span>devAc = [_$EmpSiAfiliadas] + [_$EmpNoAfiliadas]
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>devAn), BLANK(), (devAc - devAn) / devAn)
+</code></pre></div></p>
+<hr />
+<h4 id="36-_indicadorproyeccionvaloraporte"><strong>36. _indicadorProyeccionValorAporte</strong><a class="headerlink" href="#36-_indicadorproyeccionvaloraporte" title="Permanent link">&para;</a></h4>
+<p>Descripción: Relación entre el total de aportes recibidos por empresas afiliadas y la proyección del mes.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">ISBLANK</span><span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="na">Apo_Proy[Proyección]</span><span class="p">)),</span>
+<span class="w">    </span><span class="nf">BLANK</span><span class="p">(),</span>
+<span class="w">    </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="na">Apo_Proy[Proyección]</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+Meta: 95%</p>
+<hr />
+<h4 id="37-_indicadornoproyeccionvaloraporte"><strong>37. _indicadorNoProyeccionValorAporte</strong><a class="headerlink" href="#37-_indicadornoproyeccionvaloraporte" title="Permanent link">&para;</a></h4>
+<p>Descripción: Porcentaje de no cumplimiento de proyección de aportes recibidos por empresas afiliadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="m">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="na">[_indicadorProyeccionValorAporte]</span>
+</code></pre></div></p>
+<hr />
+<h4 id="38-_total_aportes"><strong>38. _Total_aportes</strong><a class="headerlink" href="#38-_total_aportes" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de aportes recibidos en el mes de empresas afiliadas y no afiliadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = ([_$EmpNoAfiliadas] + [_$EmpSiAfiliadas])
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="39-aporempafil"><strong>39. %AporEmpAfil</strong><a class="headerlink" href="#39-aporempafil" title="Permanent link">&para;</a></h4>
+<p>Descripción: Participación de los aportes de empresas afiliadas en relación con el total de aportes recibidos.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (HistoricoAportesEmp[_$EmpSiAfiliadas] / ([_$EmpNoAfiliadas] + [_$EmpSiAfiliadas]))
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="40-aporempnoafil"><strong>40. %AporEmpNoAfil</strong><a class="headerlink" href="#40-aporempnoafil" title="Permanent link">&para;</a></h4>
+<p>Descripción: Participación de los aportes de empresas no afiliadas en relación con el total de aportes recibidos.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (HistoricoAportesEmp[_$EmpNoAfiliadas] / ([_$EmpNoAfiliadas] + [_$EmpSiAfiliadas]))
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="41-_cuotas"><strong>41. _#Cuotas</strong><a class="headerlink" href="#41-_cuotas" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de cuotas entregadas en el periodo de estudio.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = COUNT(HistoricoCuota[codben])
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="42-_beneficiarioscuota"><strong>42. _beneficiariosCuota</strong><a class="headerlink" href="#42-_beneficiarioscuota" title="Permanent link">&para;</a></h4>
+<p>Descripción: Beneficiarios que recibieron cuota monetaria en el periodo de estudio.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = DISTINCTCOUNT(HistoricoCuota[codben])
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="43-_girospagados"><strong>43. _girosPagados</strong><a class="headerlink" href="#43-_girospagados" title="Permanent link">&para;</a></h4>
+<p>Descripción: Cuotas entregadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = COUNT(HistoricoCuota[CumpleMeta])
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="44-_incrementocmmesactualvsanterior"><strong>44. _incrementoCMMesActualvsAnterior</strong><a class="headerlink" href="#44-_incrementocmmesactualvsanterior" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el periodo anterior de cuotas monetarias entregadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX(Periodos[Periodo])
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoAnterior = CALCULATE(
+<span class="w">            </span><span class="nf">MAX</span><span class="p">(</span><span class="na">Periodos[Periodo]</span><span class="p">),</span>
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="na">Periodos[Periodo]</span><span class="w"> </span>&lt; periodoActual
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">            </span><span class="nf">COUNTROWS</span><span class="p">(</span>HistoricoCuota),
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="na">Periodos[Periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnterior
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="p">(</span><span class="nf">COUNTROWS</span><span class="p">(</span>HistoricoCuota) - afilAnt) / afilAnt
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="45-_incrementocmmesactualvsanteriorano"><strong>45. _incrementoCMMesActualvsAnterior(Año)</strong><a class="headerlink" href="#45-_incrementocmmesactualvsanteriorano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Comparación del resultado entre el periodo de estudio y el mismo periodo año anterior de cuotas monetarias entregadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoActual = MAX(Periodos[Periodo])
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>periodoAnoAnterior = (LEFT(periodoActual, 4) - 1) * 100 + RIGHT(periodoActual, 2)
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE(
+<span class="w">            </span><span class="nf">COUNTROWS</span><span class="p">(</span>HistoricoCuota),
+<span class="w">            </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">            </span><span class="nf">VALUE</span><span class="p">(</span><span class="na">Periodos[Periodo]</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodoAnoAnterior
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>afilAnt), BLANK(), (COUNTROWS(HistoricoCuota) - afilAnt) / afilAnt)
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="46-_indicadorcalidadpagocm"><strong>46. _indicadorCalidadPagoCM</strong><a class="headerlink" href="#46-_indicadorcalidadpagocm" title="Permanent link">&para;</a></h4>
+<p>Descripción: Número de transacciones realizadas exitosamente del giro general en relación con el total de transacciones.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">COUNTROWS</span><span class="p">(</span>EstadoGiroCuota),
+<span class="w">    </span><span class="nf">FILTER</span><span class="p">(</span>EstadoGiroCuota, EstadoGiroCuota[estadoGiro] = &quot;Exitoso&quot;)
+<span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">COUNTROWS</span><span class="p">(</span>EstadoGiroCuota)
+</code></pre></div>
+Meta: 90%</p>
+<hr />
+<h4 id="47-_indicadoroportunidadpagocm"><strong>47. _indicadorOportunidadPagoCM</strong><a class="headerlink" href="#47-_indicadoroportunidadpagocm" title="Permanent link">&para;</a></h4>
+<p>Descripción: Número de pagos generales realizados oportunamente en relación con el total de pagos realizados.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">COUNTROWS</span><span class="p">(</span>HistoricoCuota),
+<span class="w">    </span><span class="nf">FILTER</span><span class="p">(</span>HistoricoCuota, HistoricoCuota[Oportunidad] = &quot;Oportuno&quot;)
+<span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">COUNTROWS</span><span class="p">(</span>HistoricoCuota)
+</code></pre></div>
+Meta: 90%</p>
+<hr />
+<h4 id="48-_bencuota"><strong>48. _#benCuota</strong><a class="headerlink" href="#48-_bencuota" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de beneficiarios que reciben cuota monetaria.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">DISTINCTCOUNT</span><span class="p">(</span><span class="na">HistoricoCuota[codben]</span><span class="p">),</span>
+<span class="w">    </span><span class="nf">ALL</span><span class="p">(</span>Periodos)
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="49-_procuatrimestre"><strong>49. _ProCuatrimestre</strong><a class="headerlink" href="#49-_procuatrimestre" title="Permanent link">&para;</a></h4>
+<p>Descripción: Promedio de beneficiarios que recibieron cuota monetaria en el cuatrimestre.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>ct = SELECTEDVALUE(Periodos[Ano-Cuatri])
+<span class="nb">VAR</span><span class="w"> </span>tablep = SUMMARIZE(
+<span class="w">    </span><span class="nf">CALCULATETABLE</span><span class="p">(</span>HistoricoCuota, ALL(Periodos), Periodos[Ano-Cuatri] = ct),
+<span class="w">    </span><span class="na">[periodo]</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;totalben&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>_#benCuota]
+<span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">AVERAGEX</span><span class="p">(</span>tablep, [totalben]),
+<span class="w">    </span><span class="nf">REMOVEFILTERS</span><span class="p">(</span><span class="na">Periodos[periodo]</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="50-_progiroxpersona"><strong>50. _ProGiroxPersona</strong><a class="headerlink" href="#50-_progiroxpersona" title="Permanent link">&para;</a></h4>
+<p>Descripción: Promedio de giros por beneficiario.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>tablep = SUMMARIZE(
+<span class="w">    </span>HistoricoCuota,
+<span class="w">    </span><span class="na">HistoricoCuota[codben]</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;NumGiros&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">COUNTROWS</span><span class="p">(</span>HistoricoCuota)
+<span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">AVERAGEX</span><span class="p">(</span>tablep, [NumGiros])
+</code></pre></div></p>
+<hr />
+<h4 id="51-_validacioncumpleencuestas"><strong>51. _ValidacionCumpleEncuestas</strong><a class="headerlink" href="#51-_validacioncumpleencuestas" title="Permanent link">&para;</a></h4>
+<p>Descripción: Evalúa si el número de encuestas aplicadas cumple con lo establecido por la Super.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>minbene = SELECTEDVALUE(MetasEncuestas[Min Beneficiarios])
+<span class="nb">VAR</span><span class="w"> </span>maxbene = SELECTEDVALUE(MetasEncuestas[Max Beneficiarios])
+<span class="nb">VAR</span><span class="w"> </span>minen = SELECTEDVALUE(MetasEncuestas[Min Encuestas])
+<span class="nb">VAR</span><span class="w"> </span>maxen = SELECTEDVALUE(MetasEncuestas[Max Encuestas])
+<span class="nb">VAR</span><span class="w"> </span>encuNum = [_ProCuatrimestre]
+<span class="nb">VAR</span><span class="w"> </span>validacion = IF(
+<span class="w">    </span><span class="nf">AND</span><span class="p">(</span>minbene &lt;= encuNum, encuNum &lt;= maxbene),
+<span class="w">    </span><span class="m">1</span><span class="p">,</span>
+<span class="w">    </span><span class="m">0</span>
+<span class="p">)</span>
+<span class="nb">VAR</span><span class="w"> </span>numEncu = [_#Encuestas]
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span>
+<span class="w">    </span>validacion = 1,
+<span class="w">    </span><span class="nf">IF</span><span class="p">(</span>numEncu &lt; minen, &quot;No Cumple&quot;, &quot;Cumple&quot;)
+<span class="p">)</span>
+</code></pre></div>
+Meta: Depende del promedio de beneficiarios por cuatrimestre y el número de encuestas a aplicar versus aplicadas.</p>
+<hr />
+<h4 id="52-_empmora"><strong>52. _#EmpMora</strong><a class="headerlink" href="#52-_empmora" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de empresas en mora.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nb">VAR</span><span class="w"> </span>lasper = MAX(Periodos[periodo])
+<span class="w">        </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">            </span><span class="nf">DISTINCTCOUNT</span><span class="p">(</span><span class="na">HistoricoMoraEmp[nit]</span><span class="p">),</span>
+<span class="w">            </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>lasper
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="53-_empmoranotificacion"><strong>53. _#EmpMoraNotificacion</strong><a class="headerlink" href="#53-_empmoranotificacion" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de empresas notificadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">    </span><span class="p">[</span>_#EmpMora],
+<span class="w">    </span><span class="na">HistoricoMoraEmp[Notificacion]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="54-_empmora"><strong>54. _%EmpMora</strong><a class="headerlink" href="#54-_empmora" title="Permanent link">&para;</a></h4>
+<p>Descripción: Relación entre el total de empresas en mora presunta y el total de empresas afiliadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (
+<span class="w">        </span><span class="nf">DISTINCTCOUNT</span><span class="p">(</span><span class="na">HistoricoMoraEmp[nit]</span><span class="p">)</span><span class="w"> </span><span class="o">/</span>
+<span class="w">        </span><span class="nf">DISTINCTCOUNT</span><span class="p">(</span><span class="na">Historico[cod]</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="55-_empmora"><strong>55. _$EmpMora</strong><a class="headerlink" href="#55-_empmora" title="Permanent link">&para;</a></h4>
+<p>Descripción: Monto de mora presunta.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>perACtual = MAX(Periodos[periodo])
+<span class="nb">VAR</span><span class="w"> </span>dev = CALCULATE(
+<span class="w">    </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoMoraEmp[valormor]</span><span class="p">),</span>
+<span class="w">    </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>perACtual
+<span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span>dev
+</code></pre></div></p>
+<hr />
+<h4 id="56-_empresasmorosas"><strong>56. _empresasMorosas</strong><a class="headerlink" href="#56-_empresasmorosas" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de empresas que en el mes aparecen con presunta mora.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = DISTINCTCOUNT(HistoricoMoraEmp[nit])
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="57-_indicadorcarterarecuperada"><strong>57. _indicadorCarteraRecuperada</strong><a class="headerlink" href="#57-_indicadorcarterarecuperada" title="Permanent link">&para;</a></h4>
+<p>Descripción: Relación entre el monto recuperado presunto y el total de mora presunta.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="na">[_Recuperado_presunto]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">[</span>_$EmpMora]
+</code></pre></div>
+Meta: &gt;91 días = 1%, 61-90 días = 3%, 30-60 días = 5%</p>
+<hr />
+<h4 id="58-_indicadorcarterarecuperadaano"><strong>58. _indicadorCarteraRecuperada(Año)</strong><a class="headerlink" href="#58-_indicadorcarterarecuperadaano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Monto presuntamente recuperado en relación con el total de mora presunta en el año para esa cartera.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="p">[</span>_Recuperado_presunto(Año)] / HistoricoMoraEmp[_Mora_presunta(Año)]
+</code></pre></div>
+Meta: &gt;91 días = 1%, 61-90 días = 3%, 30-60 días = 5%</p>
+<hr />
+<h4 id="59-_mora_presuntaano"><strong>59. _Mora_presunta(Año)</strong><a class="headerlink" href="#59-_mora_presuntaano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Mora presunta en el año para esa cartera.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoMoraEmp[valormor]</span><span class="p">),</span>
+<span class="w">    </span><span class="na">HistoricoMoraEmp[Ultimo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="60-_recuperado"><strong>60. _Recuperado</strong><a class="headerlink" href="#60-_recuperado" title="Permanent link">&para;</a></h4>
+<p>Descripción: Dinero pagado de empresas en convenio.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoRecuperado[valpag]</span><span class="p">)</span>
+</code></pre></div></p>
+<h4 id="61-_recuperado_presunto"><strong>61. _Recuperado_presunto</strong><a class="headerlink" href="#61-_recuperado_presunto" title="Permanent link">&para;</a></h4>
+<p>Descripción: Para una empresa en particular, si está en mora y en el mes siguiente no lo está, se toma como recuperado lo que debía en el mes anterior.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>perac = SELECTEDVALUE(Periodos[periodo])
+<span class="nb">VAR</span><span class="w"> </span>actYear = LEFT(perac, 4)
+<span class="nb">VAR</span><span class="w"> </span>actMonth = RIGHT(perac, 2)
+<span class="nb">VAR</span><span class="w"> </span>antPer = CONVERT(
+<span class="w">    </span><span class="nf">IF</span><span class="p">(</span>actMonth = &quot;01&quot;, (actYear - 1) * 100 + 12, (actYear) * 100 + (actMonth - 1)),
+<span class="w">    </span><span class="nb">STRING</span>
+<span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">    </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoMoraEmp[valormor]</span><span class="p">),</span>
+<span class="w">    </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">    </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>antPer,
+<span class="w">    </span><span class="na">HistoricoMoraEmp[Ultimo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="62-empnotificadas"><strong>62. %EmpNotificadas</strong><a class="headerlink" href="#62-empnotificadas" title="Permanent link">&para;</a></h4>
+<p>Descripción: Relación entre el total de empresas notificadas y las empresas en mora.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = ([_#EmpMoraNotificacion] / [_#EmpMora])
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="63-_recobros"><strong>63. _#Recobros</strong><a class="headerlink" href="#63-_recobros" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de beneficiarios con recobro.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = DISTINCTCOUNT(HistoricoRecobro[codben])
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="64-_poblacionrecobro"><strong>64. _%PoblacionRecobro</strong><a class="headerlink" href="#64-_poblacionrecobro" title="Permanent link">&para;</a></h4>
+<p>Descripción: Relación entre el total de beneficiarios con recobro y el número de beneficiarios que reciben cuota monetaria.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (HistoricoRecobro[_#Recobros(text)] / [_beneficiariosCuota])
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="65-rural"><strong>65. %rural</strong><a class="headerlink" href="#65-rural" title="Permanent link">&para;</a></h4>
+<p>Descripción: Participación del subsidio prescrito en el sector rural.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (CALCULATE(
+<span class="w">        </span><span class="nf">COUNT</span><span class="p">(</span><span class="na">HistoricoSubPrescrito[tipsub]</span><span class="p">),</span>
+<span class="w">        </span><span class="na">HistoricoSubPrescrito[tipsub]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Rural&quot;</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">COUNT</span><span class="p">(</span><span class="na">HistoricoSubPrescrito[tipsub]</span><span class="p">))</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="66-norural"><strong>66. %noRural</strong><a class="headerlink" href="#66-norural" title="Permanent link">&para;</a></h4>
+<p>Descripción: Participación del subsidio prescrito en el sector no rural.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>formula = (CALCULATE(
+<span class="w">        </span><span class="nf">COUNT</span><span class="p">(</span><span class="na">HistoricoSubPrescrito[tipsub]</span><span class="p">),</span>
+<span class="w">        </span><span class="na">HistoricoSubPrescrito[tipsub]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;No Rural&quot;</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nf">COUNT</span><span class="p">(</span><span class="na">HistoricoSubPrescrito[tipsub]</span><span class="p">))</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="67-_metricas"><strong>67. _Metricas</strong><a class="headerlink" href="#67-_metricas" title="Permanent link">&para;</a></h4>
+<p>Descripción: Métricas a visualizar en la parte Táctica del tablero de acuerdo con el proceso seleccionado.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">SWITCH</span><span class="p">(</span><span class="nf">SELECTEDVALUE</span><span class="p">(</span><span class="na">Metricas[Nombre]</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;# Afiliaciones&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="na">Historico[seAfilio]</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;# Retiros&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="na">Historico[seRetiro]</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;# Activos&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">        </span><span class="nf">DISTINCTCOUNT</span><span class="p">(</span><span class="na">Historico[cod]</span><span class="p">),</span>
+<span class="w">        </span><span class="na">Historico[validador]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;Cobertura Proyección Empresas&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">[_IndicadorCumplimientoAfiliacionesEmp]</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;Cobertura Proyección Trabajadores&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">[_IndicadorCumplimientoAfiliacionesTrab]</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;Afiliaciones Oportunas Empresas&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">[_indicadorAfilOportunasEmp]</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;Afiliaciones Oportunas Trabajadores&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">[_indicadorAfilOportunasTrab]</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;# Satisfechos Afiliación&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">        </span><span class="p">[</span>_#Encuestas],
+<span class="w">        </span><span class="na">Satisfaccion[Polaridad]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Satisfecho&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="na">Satisfaccion[Proceso]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Afiliacion&quot;</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;# Insatisfechos Afiliación&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">        </span><span class="p">[</span>_#Encuestas],
+<span class="w">        </span><span class="na">Satisfaccion[Polaridad]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Insatisfecho&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="na">Satisfaccion[Proceso]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Afiliacion&quot;</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;Promedio Satisfacción Afiliación&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">        </span><span class="nf">AVERAGE</span><span class="p">(</span><span class="na">Satisfaccion[Calificacion]</span><span class="p">),</span>
+<span class="w">        </span><span class="na">Satisfaccion[Proceso]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Afiliacion&quot;</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;Incremento Ingresos&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">[_indicadorAportesActualvsAnterior]</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;Cumplimiento Aportes&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">[_indicadorProyeccionValorAporte]</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;# Aportes Entregados&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">COUNTROWS</span><span class="p">(</span>HistoricoAportesEmp),
+<span class="w">    </span><span class="s">&quot;# Empresas Aportantes No Afiliadas&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>_#ApoEmpNoAfiliadas],
+<span class="w">    </span><span class="s">&quot;# Empresas En Mora&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>_#EmpMora],
+<span class="w">    </span><span class="s">&quot;$ Aportes Total&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>_$TotalValorPag],
+<span class="w">    </span><span class="s">&quot;$ En Mora&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>_$EmpMora],
+<span class="w">    </span><span class="s">&quot;$ Aportes Emp No Afiliadas&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>_$EmpNoAfiliadas],
+<span class="w">    </span><span class="s">&quot;$ Recuperado&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">[_Recuperado]</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;# Beneficiarios Con Cuota&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>_#benCuota],
+<span class="w">    </span><span class="s">&quot;$ Cuotas Entregadas&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoCuota[valor]</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;$ Recobro&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoRecobro[valabo]</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;Calidad Pago Cuota Monetaria&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">[_indicadorCalidadPagoCM]</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;# Satisfechos Cuota&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">        </span><span class="p">[</span>_#Encuestas],
+<span class="w">        </span><span class="na">Satisfaccion[Polaridad]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Satisfecho&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="na">Satisfaccion[Proceso]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Cuota Monetaria&quot;</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;# Insatisfechos Cuota&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">        </span><span class="p">[</span>_#Encuestas],
+<span class="w">        </span><span class="na">Satisfaccion[Polaridad]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Insatisfecho&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="na">Satisfaccion[Proceso]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Cuota Monetaria&quot;</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;Promedio Satisfacción Cuota&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">        </span><span class="nf">AVERAGE</span><span class="p">(</span><span class="na">Satisfaccion[Calificacion]</span><span class="p">),</span>
+<span class="w">        </span><span class="na">Satisfaccion[Proceso]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Cuota Monetaria&quot;</span>
+<span class="w">    </span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;Subsidio Prescrito&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoSubPrescrito[valor_prescripcion]</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="68-_encuestas"><strong>68. _#Encuestas</strong><a class="headerlink" href="#68-_encuestas" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de encuestas aplicadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">DISTINCTCOUNTNOBLANK</span><span class="p">(</span><span class="na">Satisfaccion[Validador_total_encuestas]</span><span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="69-_polaridad"><strong>69. _%Polaridad</strong><a class="headerlink" href="#69-_polaridad" title="Permanent link">&para;</a></h4>
+<p>Descripción: Participación de personas satisfechas e insatisfechas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>periodo = SELECTEDVALUE(Periodos[periodo])
+<span class="nb">VAR</span><span class="w"> </span>polaridad = CALCULATE(
+<span class="w">    </span><span class="nf">COUNTROWS</span><span class="p">(</span>Satisfaccion) /
+<span class="w">    </span><span class="nf">CALCULATE</span><span class="p">(</span><span class="nf">COUNTROWS</span><span class="p">(</span>Satisfaccion), REMOVEFILTERS(Satisfaccion[Polaridad])),
+<span class="w">    </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">    </span><span class="na">Satisfaccion[Periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodo
+<span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span>polaridad
+</code></pre></div></p>
+<hr />
+<h4 id="70-_calificacion"><strong>70. _Calificacion</strong><a class="headerlink" href="#70-_calificacion" title="Permanent link">&para;</a></h4>
+<p>Descripción: Promedio de calificación de encuestas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>periodo = SELECTEDVALUE(Periodos[periodo])
+<span class="nb">VAR</span><span class="w"> </span>avg_calif = CALCULATE(
+<span class="w">    </span><span class="nf">AVERAGE</span><span class="p">(</span><span class="na">Satisfaccion[Calificacion]</span><span class="p">),</span>
+<span class="w">    </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">    </span><span class="na">Satisfaccion[Periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>periodo
+<span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span>avg_calif
+</code></pre></div></p>
+<hr />
+<h4 id="71-_cumplimientoafiliacionesencuestas"><strong>71. _cumplimientoAfiliacionesEncuestas</strong><a class="headerlink" href="#71-_cumplimientoafiliacionesencuestas" title="Permanent link">&para;</a></h4>
+<p>Descripción: Relación entre el total de encuestas aplicadas y el muestreo sugerido.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code>_cumplimientoAfiliacionesEncuestas = COUNT(Satisfaccion[Validador_total_encuestas]) / [_TamañoMuestra]
+</code></pre></div>
+Meta: Dependiendo del total de la población con un 90% de confianza</p>
+<hr />
+<h4 id="72-_satisfaccionmesactualvsanterior"><strong>72. _satisfaccionMesActualvsAnterior</strong><a class="headerlink" href="#72-_satisfaccionmesactualvsanterior" title="Permanent link">&para;</a></h4>
+<p>Descripción: Variación de la calificación por pregunta de encuesta, del periodo de estudio versus el periodo anterior.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>periodoActual = SELECTEDVALUE(Periodos[periodo])
+<span class="nb">VAR</span><span class="w"> </span>periodoAnterior = CALCULATE(MAX(Periodos[periodo]), ALL(Periodos), Periodos[periodo] &lt; periodoActual)
+<span class="nb">VAR</span><span class="w"> </span>encAnt = CALCULATE([_Calificacion], ALL(Periodos), Periodos[periodo] = periodoAnterior)
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>encAnt), BLANK(), ([_Calificacion] - encAnt) / encAnt)
+</code></pre></div></p>
+<hr />
+<h4 id="73-_satisfaccionmesactualvsanteriorano"><strong>73. _satisfaccionMesActualvsAnterior(Año)</strong><a class="headerlink" href="#73-_satisfaccionmesactualvsanteriorano" title="Permanent link">&para;</a></h4>
+<p>Descripción: Variación de la calificación por pregunta de encuesta, del periodo de estudio versus el mismo periodo año anterior.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>periodoActual = SELECTEDVALUE(Periodos[periodo])
+<span class="nb">VAR</span><span class="w"> </span>periodoAnoAnterior = (LEFT(periodoActual, 4) - 1) * 100 + RIGHT(periodoActual, 2)
+<span class="nb">VAR</span><span class="w"> </span>afilAnt = CALCULATE([_Calificacion], ALL(Periodos), VALUE(Periodos[periodo]) = periodoAnoAnterior)
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>afilAnt), BLANK(), ([_Calificacion] - afilAnt) / afilAnt)
+</code></pre></div></p>
+<hr />
+<h4 id="74-_tamanomuestra"><strong>74. _TamañoMuestra</strong><a class="headerlink" href="#74-_tamanomuestra" title="Permanent link">&para;</a></h4>
+<p>Descripción: Muestreo sugerido de acuerdo a la población afiliada en el periodo con un nivel de confianza del 90%.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>Z = 1.645
+<span class="nb">VAR</span><span class="w"> </span>p = 0.5
+<span class="nb">VAR</span><span class="w"> </span>E = 0.1
+<span class="nb">VAR</span><span class="w"> </span>Poblacion_Total = CALCULATE(DISTINCTCOUNT(Historico[cod]), Historico[seAfilio] = 1)
+<span class="nb">RETURN</span><span class="w"> </span><span class="p">(</span>Z^2 * p * (1 - p) * Poblacion_Total) / ((E^2 * (Poblacion_Total - 1)) + (Z^2 * p * (1 - p)))
+</code></pre></div></p>
+<hr />
+<h4 id="75-_metricas_tabla_afil"><strong>75. _Metricas_tabla_afil</strong><a class="headerlink" href="#75-_metricas_tabla_afil" title="Permanent link">&para;</a></h4>
+<p>Descripción: Consolida las cifras de afiliaciones activas mes anterior, afiliaciones en el periodo y desafiliaciones.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">SWITCH</span><span class="p">(</span><span class="nf">SELECTEDVALUE</span><span class="p">(</span><span class="na">TablaAfiliaciones[Criterio]</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;Total Activos mes anterior&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">[_totalAfiliados]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="na">Historico[seAfilio]</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;Total Afiliaciones en el periodo&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">SUM</span><span class="p">(</span><span class="na">Historico[seAfilio]</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;Total Desafiliaciones&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="na">[_Desafiliaciones]</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="76-_metricas_tabla_apo"><strong>76. _Metricas_tabla_apo</strong><a class="headerlink" href="#76-_metricas_tabla_apo" title="Permanent link">&para;</a></h4>
+<p>Descripción: Consolida las cifras de aportes afiliados activos mes anterior, aportes no afiliados, aportes recuperados por mora presunta, aportes afiliados en el periodo y aportes recuperados por mora real.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">SWITCH</span><span class="p">(</span><span class="nf">SELECTEDVALUE</span><span class="p">(</span><span class="na">TablaAportes[Criterio]</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;Aportes afiliados activos mes anterior&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">),</span><span class="w"> </span><span class="na">Historico[seAfilio]</span><span class="w"> </span>&lt;&gt; 1),
+<span class="w">    </span><span class="s">&quot;Aportes afiliados en el periodo&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">),</span><span class="w"> </span><span class="na">Historico[seAfilio]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
+<span class="w">    </span><span class="s">&quot;Aportes no afiliados&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span>_$EmpNoAfiliadas],
+<span class="w">    </span><span class="s">&quot;Aportes recuperados por mora real&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">[_Recuperado]</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;Aportes recuperados por mora presunta&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">[_Recuperado_presunto]</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="77-_totalagrupadorvalormensual"><strong>77. _totalAgrupadorValorMensual</strong><a class="headerlink" href="#77-_totalagrupadorvalormensual" title="Permanent link">&para;</a></h4>
+<p>Descripción: Calcula el promedio de aportes que deja de percibir la organización por las empresas que se desafilian.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="nb">VAR</span><span class="w"> </span>formula = SUM(AgrupadorValorMensual[AVGbyPeriodo])
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="78-_calificacionformato"><strong>78. _calificacionFormato</strong><a class="headerlink" href="#78-_calificacionformato" title="Permanent link">&para;</a></h4>
+<p>Descripción: Promedio de calificación de las encuestas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="nb">VAR</span><span class="w"> </span>formula = AVERAGE(Satisfaccion[Calificacion])
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div>
+Meta: &gt;= 4</p>
+<hr />
+<h4 id="79-_empsiafiliadasformato"><strong>79. _$EmpSiAfiliadasFormato</strong><a class="headerlink" href="#79-_empsiafiliadasformato" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de aportes recibidos en el mes de empresas afiliadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="nb">VAR</span><span class="w"> </span>formula = SUM(HistoricoAportesEmp[valorpag])
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="80-_totalintereses"><strong>80. _totalIntereses</strong><a class="headerlink" href="#80-_totalintereses" title="Permanent link">&para;</a></h4>
+<p>Descripción: Intereses causados por concepto de aportes.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="nb">VAR</span><span class="w"> </span>formula = SUM(HistoricoAportesEmp[valorInt])
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="81-_empnoafiliadasformato"><strong>81. _$EmpNoAfiliadasFormato</strong><a class="headerlink" href="#81-_empnoafiliadasformato" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de aportes recibidos en el mes de empresas no afiliadas.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>per = SELECTEDVALUE(Periodos[periodo])
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">        </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoAportesEmp[valorpag]</span><span class="p">),</span>
+<span class="w">        </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">        </span><span class="nf">REMOVEFILTERS</span><span class="p">(</span><span class="na">Historico[validador]</span><span class="p">),</span>
+<span class="w">        </span><span class="na">HistoricoAportesEmp[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>per,
+<span class="w">        </span><span class="na">HistoricoAportesEmp[NoAfil]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="82-_recuperadoformato"><strong>82. _RecuperadoFormato</strong><a class="headerlink" href="#82-_recuperadoformato" title="Permanent link">&para;</a></h4>
+<p>Descripción: Dinero pagado de empresas en convenio.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="nb">VAR</span><span class="w"> </span>formula = SUM(HistoricoRecuperado[valpag])
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="83-_totalmontopresuncion"><strong>83. _totalMontoPresuncion</strong><a class="headerlink" href="#83-_totalmontopresuncion" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total mora presunta.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="nb">VAR</span><span class="w"> </span>formula = SUM(HistoricoMoraEmp[valormor])
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="84-_recuperado_presunto_formato"><strong>84. _Recuperado_presunto_formato</strong><a class="headerlink" href="#84-_recuperado_presunto_formato" title="Permanent link">&para;</a></h4>
+<p>Descripción: Para una empresa en particular, si está en mora y en el mes siguiente no lo está, se toma como recuperado lo que debía en el mes anterior.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span>
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>perac = SELECTEDVALUE(Periodos[periodo])
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>actYear = LEFT(perac, 4)
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>actMonth = RIGHT(perac, 2)
+<span class="w">    </span><span class="nb">VAR</span><span class="w"> </span>antPer = CONVERT(
+<span class="w">        </span><span class="nf">IF</span><span class="p">(</span>actMonth = &quot;01&quot;, (actYear - 1) * 100 + 12, (actYear) * 100 + (actMonth - 1)),
+<span class="w">        </span><span class="nb">STRING</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">CALCULATE</span><span class="p">(</span>
+<span class="w">        </span><span class="nf">SUM</span><span class="p">(</span><span class="na">HistoricoMoraEmp[valormor]</span><span class="p">),</span>
+<span class="w">        </span><span class="nf">ALL</span><span class="p">(</span>Periodos),
+<span class="w">        </span><span class="na">Periodos[periodo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>antPer,
+<span class="w">        </span><span class="na">HistoricoMoraEmp[Ultimo]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula),
+<span class="w">    </span><span class="s">&quot;-&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<hr />
+<h4 id="85-_trxdescuentos"><strong>85. _trxDescuentos</strong><a class="headerlink" href="#85-_trxdescuentos" title="Permanent link">&para;</a></h4>
+<p>Descripción: Número de transacciones con códigos de cuenta tipo descuento.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="nb">VAR</span><span class="w"> </span>formula = COUNT(HistoricoCuota[cedres])
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="86-_totalprescripcion"><strong>86. _totalPrescripcion</strong><a class="headerlink" href="#86-_totalprescripcion" title="Permanent link">&para;</a></h4>
+<p>Descripción: Monto de prescripción.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="nb">VAR</span><span class="w"> </span>formula = SUM(HistoricoSubPrescrito[valor_prescripcion])
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="87-_montoabonado"><strong>87. _montoAbonado</strong><a class="headerlink" href="#87-_montoabonado" title="Permanent link">&para;</a></h4>
+<p>Descripción: Monto abonado del recobro.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="nb">VAR</span><span class="w"> </span>formula = SUM(HistoricoRecobro[valabo])
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="88-_beneficiarioscuotaformato"><strong>88. _beneficiariosCuotaFormato</strong><a class="headerlink" href="#88-_beneficiarioscuotaformato" title="Permanent link">&para;</a></h4>
+<p>Descripción: Beneficiarios que recibieron cuota monetaria en el periodo de estudio.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">IFERROR</span><span class="p">(</span><span class="nb">VAR</span><span class="w"> </span>formula = DISTINCTCOUNT(HistoricoCuota[codben])
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>formula), &quot;-&quot;, formula), &quot;-&quot;)
+</code></pre></div></p>
+<hr />
+<h4 id="89-_afiliaciones"><strong>89. _#afiliaciones</strong><a class="headerlink" href="#89-_afiliaciones" title="Permanent link">&para;</a></h4>
+<p>Descripción: Total de afiliaciones recibidas por Igestion o Mercurio.<br />
+Fórmula:
+<div class="highlight"><pre><span></span><code><span class="nf">DISTINCTCOUNT</span><span class="p">(</span><span class="na">Igestion_Mercurio[Radicado]</span><span class="p">)</span>
+</code></pre></div>
+Meta: 90% mínimo Mercurio</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/init_mermaid.js"></script>
+      
+    
+  </body>
+</html>

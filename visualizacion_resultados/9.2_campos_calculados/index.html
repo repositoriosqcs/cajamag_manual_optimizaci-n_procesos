@@ -1,0 +1,1504 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../9.1_medidas/">
+      
+      
+        <link rel="next" href="../9.3_menu/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>2. Campos Calculados - Manual de usuario Modelo Analítico Optimización de Procesos</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#d89717" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#campos-calculados" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Manual de usuario Modelo Analítico Optimización de Procesos" class="md-header__button md-logo" aria-label="Manual de usuario Modelo Analítico Optimización de Procesos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Manual de usuario Modelo Analítico Optimización de Procesos
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Campos Calculados
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Manual de usuario Modelo Analítico Optimización de Procesos" class="md-nav__button md-logo" aria-label="Manual de usuario Modelo Analítico Optimización de Procesos" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Manual de usuario Modelo Analítico Optimización de Procesos
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01_glosario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GLOSARIO DE TÉRMINOS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02_objetivo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OBJETIVO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03_alcance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ALCANCE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04_logica_modelo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LÓGICA DEL MODELO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05_consideraciones_uso/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CONSIDERACIONES DE USO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06_recoleccion_info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RECOLECCIÓN DE INFORMACIÓN Y BASES DE DATOS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    TRANSFORMACIÓN Y CARGA DE DATOS>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            TRANSFORMACIÓN Y CARGA DE DATOS>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transformacion_carga/7.1_reglas_generales/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Reglas Generales
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transformacion_carga/7.2_carga_parametricas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2. Carga de Paramétricas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transformacion_carga/7.3_transformaciones_intermedias/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Transformaciones Intermedias y Satisfacción
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08_centralizacion_info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CENTRALIZACIÓN DE LA INFORMACIÓN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    VISUALIZACIÓN DE RESULTADOS>
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            VISUALIZACIÓN DE RESULTADOS>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.1_medidas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1. Medidas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2. Campos Calculados
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2. Campos Calculados
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-estadodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. EstadoDes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-keypromedioaporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. KeyPromedioAporte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rangonumtrabajadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. RangoNumTrabajadores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tipcaptra" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. tipcaptra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tipparent" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. tipparent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-c_ans" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. c_ANS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-diastrabajados" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. DiasTrabajados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-noafil" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. NoAfil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cumplemeta" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. CumpleMeta
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-descuento" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. descuento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Meta
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-nextpergir" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. NextPergir
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-diasmora" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. DiasMora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-edadespresuntas" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. EdadesPresuntas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-noconvenio" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. NoConvenio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-periodoantiguo" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. PeriodoAntiguo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-posterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Posterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-primero" class="md-nav__link">
+    <span class="md-ellipsis">
+      18. Primero
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-ultimo" class="md-nav__link">
+    <span class="md-ellipsis">
+      19. Ultimo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-tipcategoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      20. Tipcategoria
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-numgiro" class="md-nav__link">
+    <span class="md-ellipsis">
+      21. numGiro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-ano-cuatri" class="md-nav__link">
+    <span class="md-ellipsis">
+      22. Ano-Cuatri
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-ano-trim" class="md-nav__link">
+    <span class="md-ellipsis">
+      23. Ano-Trim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-cuatrimestre" class="md-nav__link">
+    <span class="md-ellipsis">
+      24. Cuatrimestre
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-trimestre" class="md-nav__link">
+    <span class="md-ellipsis">
+      25. Trimestre
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-polaridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      26. Polaridad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-medio" class="md-nav__link">
+    <span class="md-ellipsis">
+      27. Medio
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.3_menu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3. Menú
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.4_rendimiento_afiliacion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4. Rendimiento del Proceso de Afiliación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.5_rendimiento_aportes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5. Rendimiento del Proceso de Aportes (Empresas)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.6_rendimiento_cuota/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6. Rendimiento del Proceso de Cuota Monetaria
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.7_tactico/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7. Táctico
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9.8_seguimiento_indicadores/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8. Seguimiento de Indicadores Operativos
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-estadodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. EstadoDes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-keypromedioaporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. KeyPromedioAporte
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-rangonumtrabajadores" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. RangoNumTrabajadores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-tipcaptra" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. tipcaptra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-tipparent" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. tipparent
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-c_ans" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. c_ANS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-diastrabajados" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. DiasTrabajados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-noafil" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. NoAfil
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-cumplemeta" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. CumpleMeta
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-descuento" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. descuento
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Meta
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-nextpergir" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. NextPergir
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-diasmora" class="md-nav__link">
+    <span class="md-ellipsis">
+      13. DiasMora
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-edadespresuntas" class="md-nav__link">
+    <span class="md-ellipsis">
+      14. EdadesPresuntas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-noconvenio" class="md-nav__link">
+    <span class="md-ellipsis">
+      15. NoConvenio
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-periodoantiguo" class="md-nav__link">
+    <span class="md-ellipsis">
+      16. PeriodoAntiguo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-posterior" class="md-nav__link">
+    <span class="md-ellipsis">
+      17. Posterior
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-primero" class="md-nav__link">
+    <span class="md-ellipsis">
+      18. Primero
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19-ultimo" class="md-nav__link">
+    <span class="md-ellipsis">
+      19. Ultimo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20-tipcategoria" class="md-nav__link">
+    <span class="md-ellipsis">
+      20. Tipcategoria
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#21-numgiro" class="md-nav__link">
+    <span class="md-ellipsis">
+      21. numGiro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-ano-cuatri" class="md-nav__link">
+    <span class="md-ellipsis">
+      22. Ano-Cuatri
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-ano-trim" class="md-nav__link">
+    <span class="md-ellipsis">
+      23. Ano-Trim
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-cuatrimestre" class="md-nav__link">
+    <span class="md-ellipsis">
+      24. Cuatrimestre
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-trimestre" class="md-nav__link">
+    <span class="md-ellipsis">
+      25. Trimestre
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-polaridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      26. Polaridad
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-medio" class="md-nav__link">
+    <span class="md-ellipsis">
+      27. Medio
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="campos-calculados">Campos Calculados<a class="headerlink" href="#campos-calculados" title="Permanent link">&para;</a></h1>
+<p>En esta sección se presentan los campos calculados o columnas creadas en DAX para la construcción de la capa visual.</p>
+<h3 id="1-estadodes">1. <strong>EstadoDes</strong><a class="headerlink" href="#1-estadodes" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: Historico<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[estado]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Activo&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">OR</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[estado]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;I&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">Historico[estado]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;M&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;Inactivo&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[estado]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;P&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Pendiente&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">BLANK</span><span class="p">()</span><span class="w"> </span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<h3 id="2-keypromedioaporte">2. <strong>KeyPromedioAporte</strong><a class="headerlink" href="#2-keypromedioaporte" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: Historico<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">RIGHT</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[cod]</span><span class="p">,</span><span class="w"> </span><span class="nf">LEN</span><span class="p">(</span><span class="na">Historico[cod]</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>&amp; LEFT(Historico[Tipo], 3)
+</code></pre></div></p>
+<h3 id="3-rangonumtrabajadores">3. <strong>RangoNumTrabajadores</strong><a class="headerlink" href="#3-rangonumtrabajadores" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: Historico<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">ISBLANK</span><span class="p">(</span><span class="na">Historico[NumTrab]</span><span class="w"> </span><span class="p">),</span><span class="w"> </span><span class="nf">BLANK</span><span class="p">(),</span><span class="w"> </span>
+<span class="w">    </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[NumTrab]</span><span class="w"> </span>&lt;= 10, &quot;0-10 trab&quot;, 
+<span class="w">        </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">AND</span><span class="p">(</span><span class="w"> </span><span class="m">10</span><span class="w"> </span>&lt; Historico[NumTrab], Historico[NumTrab] &lt;= 50 ), &quot;11-50 trab&quot;, 
+<span class="w">            </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">AND</span><span class="p">(</span><span class="w"> </span><span class="m">49</span><span class="w"> </span>&lt; Historico[NumTrab], Historico[NumTrab] &lt;= 250 ), &quot;51-250 trab&quot;, 
+<span class="w">                </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="m">250</span><span class="w"> </span>&lt; Historico[NumTrab], &quot;&lt;250 trab&quot;, BLANK() )
+<span class="w">            </span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<h3 id="4-tipcaptra">4. <strong>tipcaptra</strong><a class="headerlink" href="#4-tipcaptra" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: Historico<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[captra]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;N&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Normal&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[captra]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;I&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Discapacidad&quot;</span><span class="p">,</span><span class="w"> </span><span class="na">Historico[captra]</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<h3 id="5-tipparent">5. <strong>tipparent</strong><a class="headerlink" href="#5-tipparent" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: Historico<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[parent]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hijo&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[parent]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hermano&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[parent]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Padre&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<h3 id="6-c_ans">6. <strong>c_ANS</strong><a class="headerlink" href="#6-c_ans" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoANS<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span>
+<span class="w">    </span><span class="p">(</span><span class="na">HistoricoANS[Fuente]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;subsi15&quot;</span><span class="w"> </span>&amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 7 &amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 8 
+<span class="w">    </span>&amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 4 &amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 5 &amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 9 
+<span class="w">    </span>&amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 11 &amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 6 &amp;&amp; HistoricoANS[DiasTrabajados] &gt; 8)
+<span class="w">    </span>|| (HistoricoANS[Fuente] = &quot;subsi23&quot; &amp;&amp; HistoricoANS[DiasTrabajados] &gt; 8),
+<span class="w">    </span><span class="s">&quot;Fuera de Ans&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nf">IF</span><span class="p">(</span>
+<span class="w">        </span><span class="p">(</span><span class="na">HistoricoANS[Fuente]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;subsi15&quot;</span><span class="w"> </span>&amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 7 &amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 8 
+<span class="w">        </span>&amp;&amp; HistoricoANS[DiasTrabajados] &gt; 3)
+<span class="w">        </span>|| (HistoricoANS[Fuente] = &quot;subsi15&quot; &amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 4 &amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 5 
+<span class="w">        </span>&amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 9 &amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 11 &amp;&amp; HistoricoANS[DiasTrabajados] &gt; 3)
+<span class="w">        </span>|| (HistoricoANS[Fuente] = &quot;subsi15&quot; &amp;&amp; SELECTEDVALUE(Historico[tipafi]) &lt;&gt; 6 &amp;&amp; HistoricoANS[DiasTrabajados] &gt; 3)
+<span class="w">        </span>|| (HistoricoANS[Fuente] = &quot;subsi02&quot; &amp;&amp; HistoricoANS[DiasTrabajados] &gt; 3),
+<span class="w">        </span><span class="s">&quot;Fuera de Ans&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;Dentro de Ans&quot;</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<h3 id="7-diastrabajados">7. <strong>DiasTrabajados</strong><a class="headerlink" href="#7-diastrabajados" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoANS<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">NETWORKDAYS</span><span class="p">(</span><span class="w"> </span><span class="na">HistoricoANS[fecafi]</span><span class="p">,</span><span class="w"> </span><span class="na">HistoricoANS[fecapr]</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span>FestivosColombia)
+</code></pre></div></p>
+<h3 id="8-noafil">8. <strong>NoAfil</strong><a class="headerlink" href="#8-noafil" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistóricoAportesEmp<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">LOOKUPVALUE</span><span class="p">(</span><span class="w"> </span><span class="na">Historico[KeyMoraEmp]</span><span class="p">,</span><span class="w"> </span><span class="na">Historico[KeyMoraEmp]</span><span class="p">,</span><span class="w"> </span><span class="na">HistoricoAportesEmp[KeyHistoricos]</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">BLANK</span><span class="p">(),</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+</code></pre></div></p>
+<h3 id="9-cumplemeta">9. <strong>CumpleMeta</strong><a class="headerlink" href="#9-cumplemeta" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoCuota<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="na">HistoricoCuota[fecent]</span><span class="w"> </span>&lt;= HistoricoCuota[Meta], &quot;Cumple&quot;, 
+<span class="w">    </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">ISBLANK</span><span class="p">(</span><span class="na">HistoricoCuota[Meta]</span><span class="p">),</span><span class="w"> </span><span class="nf">BLANK</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;No Cumple&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<h3 id="10-descuento">10. <strong>descuento</strong><a class="headerlink" href="#10-descuento" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoCuota<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span>
+<span class="w">    </span><span class="p">(</span><span class="na">HistoricoCuota[codcue]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;16&quot;</span><span class="w"> </span>|| HistoricoCuota[codcue] = &quot;61&quot; || HistoricoCuota[codcue] = &quot;98&quot;),
+<span class="w">    </span><span class="s">&quot;Si&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;No&quot;</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<h3 id="11-meta">11. <strong>Meta</strong><a class="headerlink" href="#11-meta" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoCuota<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>pergir = HistoricoCuota[NextPergir]
+<span class="nb">VAR</span><span class="w"> </span>gir = HistoricoCuota[numgir]
+<span class="nb">VAR</span><span class="w"> </span>dev = CALCULATE( MAX(MetasCuota[fecha]), MetasCuota[periodo] = pergir, MetasCuota[numGiro] = gir)
+<span class="nb">RETURN</span><span class="w"> </span>dev
+</code></pre></div></p>
+<h3 id="12-nextpergir">12. <strong>NextPergir</strong><a class="headerlink" href="#12-nextpergir" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoCuota<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>pergir = HistoricoCuota[periodo]
+<span class="nb">VAR</span><span class="w"> </span>anio = VALUE(LEFT(pergir, 4))
+<span class="nb">VAR</span><span class="w"> </span>mes = VALUE(RIGHT(pergir, 2))
+<span class="nb">VAR</span><span class="w"> </span>dev = IF( mes = 12, (anio+1)*100 + 1, anio*100 + (mes+1))
+
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">CONVERT</span><span class="p">(</span>dev, STRING)
+</code></pre></div></p>
+<h3 id="13-diasmora">13. <strong>DiasMora</strong><a class="headerlink" href="#13-diasmora" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoMoraEmp<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>nit = HistoricoMoraEmp[nit]
+<span class="nb">VAR</span><span class="w"> </span>periodo = HistoricoMoraEmp[periodo_actualizacion]
+<span class="nb">VAR</span><span class="w"> </span>fech_Comp = EOMONTH(EDATE(TODAY(), -2), 0)
+<span class="nb">VAR</span><span class="w"> </span>PerAnt = CALCULATE( MAX(HistoricoMoraEmp[periodo_actualizacion]), ALL(HistoricoMoraEmp), HistoricoMoraEmp[Primero] = 1, periodo &gt;= HistoricoMoraEmp[periodo_actualizacion], nit = HistoricoMoraEmp[nit])
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">DATEDIFF</span><span class="p">(</span><span class="nf">DATEVALUE</span><span class="p">(</span><span class="s">&quot;01/&quot;</span><span class="w"> </span>&amp; RIGHT(PerAnt, 2) &amp; &quot;/&quot; &amp; LEFT(PerAnt, 4)), fech_Comp, DAY)
+</code></pre></div></p>
+<h3 id="14-edadespresuntas">14. <strong>EdadesPresuntas</strong><a class="headerlink" href="#14-edadespresuntas" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoMoraEmp<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">AND</span><span class="p">(</span><span class="na">HistoricoMoraEmp[DiasMora]</span><span class="w"> </span>&gt;= 30, HistoricoMoraEmp[DiasMora] &lt;= 60), &quot;30-60 días&quot;,
+<span class="w">    </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">AND</span><span class="p">(</span><span class="na">HistoricoMoraEmp[DiasMora]</span><span class="w"> </span>&gt; 60, HistoricoMoraEmp[DiasMora] &lt;= 90), &quot;61-90 días&quot;,
+<span class="w">        </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="na">HistoricoMoraEmp[DiasMora]</span><span class="w"> </span>&gt; 90, &quot;&gt; 91 días&quot;, BLANK())
+<span class="w">    </span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<h3 id="15-noconvenio">15. <strong>NoConvenio</strong><a class="headerlink" href="#15-noconvenio" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoMoraEmp<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">LOOKUPVALUE</span><span class="p">(</span><span class="na">HistoricoRecuperado[KeyXML4]</span><span class="p">,</span><span class="w"> </span><span class="na">HistoricoRecuperado[KeyXML4]</span><span class="p">,</span><span class="w"> </span><span class="na">HistoricoMoraEmp[KeyConvenio]</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">BLANK</span><span class="p">(),</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+</code></pre></div></p>
+<h3 id="16-periodoantiguo">16. <strong>PeriodoAntiguo</strong><a class="headerlink" href="#16-periodoantiguo" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoMoraEmp<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>nit = HistoricoMoraEmp[nit]
+<span class="nb">VAR</span><span class="w"> </span>periodo = HistoricoMoraEmp[periodo_actualizacion]
+<span class="nb">VAR</span><span class="w"> </span>periodo_antig = CALCULATE(MIN(HistoricoMoraEmp[periodo_actualizacion]), ALL(HistoricoMoraEmp), HistoricoMoraEmp[nit] = nit, HistoricoMoraEmp[periodo_actualizacion] &lt;= periodo)
+<span class="nb">RETURN</span><span class="w"> </span>periodo_antig
+</code></pre></div></p>
+<h3 id="17-posterior">17. <strong>Posterior</strong><a class="headerlink" href="#17-posterior" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoMoraEmp<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>nitEmp = HistoricoMoraEmp[nit]
+<span class="nb">VAR</span><span class="w"> </span>actPer = HistoricoMoraEmp[periodo_actualizacion]
+<span class="nb">VAR</span><span class="w"> </span>actYear = LEFT(actPer, 4)
+<span class="nb">VAR</span><span class="w"> </span>actMonth = RIGHT(actPer, 2)
+<span class="nb">VAR</span><span class="w"> </span>sigPer = IF(actMonth = &quot;12&quot;, (actYear+1)*100 + 1, actYear*100 + (actMonth + 1))
+
+<span class="nb">RETURN</span><span class="w"> </span>sigPer
+</code></pre></div></p>
+<h3 id="18-primero">18. <strong>Primero</strong><a class="headerlink" href="#18-primero" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoMoraEmp<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>nitEmp = HistoricoMoraEmp[nit]
+<span class="nb">VAR</span><span class="w"> </span>ante = CONVERT(HistoricoMoraEmp[Anterior], STRING)
+<span class="nb">VAR</span><span class="w"> </span>valid = CALCULATE(MAX(HistoricoMoraEmp[periodo_actualizacion]), ALL(HistoricoMoraEmp), HistoricoMoraEmp[nit] = nitEmp, HistoricoMoraEmp[periodo_actualizacion] = ante)
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>valid), 1, 0)
+</code></pre></div></p>
+<h3 id="19-ultimo">19. <strong>Ultimo</strong><a class="headerlink" href="#19-ultimo" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoMoraEmp<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>nitEmp = HistoricoMoraEmp[nit]
+<span class="nb">VAR</span><span class="w"> </span>poste = CONVERT(HistoricoMoraEmp[Posterior], STRING)
+<span class="nb">VAR</span><span class="w"> </span>valid = CALCULATE(MAX(HistoricoMoraEmp[periodo_actualizacion]), ALL(HistoricoMoraEmp), HistoricoMoraEmp[nit] = nitEmp, HistoricoMoraEmp[periodo_actualizacion] = poste)
+<span class="nb">RETURN</span><span class="w"> </span><span class="nf">IF</span><span class="p">(</span><span class="nf">ISBLANK</span><span class="p">(</span>valid), 1, 0)
+</code></pre></div></p>
+<h3 id="20-tipcategoria">20. <strong>Tipcategoria</strong><a class="headerlink" href="#20-tipcategoria" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: HistoricoRecobro<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span><span class="na">HistoricoRecobro[categoria]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agrario&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nf">IF</span><span class="p">(</span><span class="na">HistoricoRecobro[categoria]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;O&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Pago incorrecto&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nf">IF</span><span class="p">(</span><span class="na">HistoricoRecobro[categoria]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;P&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Pensionado&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div></p>
+<h3 id="21-numgiro">21. <strong>numGiro</strong><a class="headerlink" href="#21-numgiro" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: MetasCuota<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">RANKX</span><span class="p">(</span><span class="nf">FILTER</span><span class="p">(</span><span class="na">&#39;MetasCuota&#39;</span><span class="p">,</span><span class="w"> </span><span class="na">&#39;MetasCuota&#39;[Mes]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">EARLIER</span><span class="p">(</span><span class="na">&#39;MetasCuota&#39;[Mes]</span><span class="p">)),</span><span class="w"> </span><span class="na">&#39;MetasCuota&#39;[fecha]</span><span class="p">,,</span><span class="w"> </span><span class="nb">ASC</span><span class="p">,</span><span class="w"> </span>Dense)
+</code></pre></div></p>
+<h3 id="22-ano-cuatri">22. <strong>Ano-Cuatri</strong><a class="headerlink" href="#22-ano-cuatri" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: Periodos<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="na">Periodos[Año]</span><span class="w"> </span>&amp; &quot;-&quot; &amp; Periodos[Cuatrimestre]
+</code></pre></div></p>
+<h3 id="23-ano-trim">23. <strong>Ano-Trim</strong><a class="headerlink" href="#23-ano-trim" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: Periodos<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="na">Periodos[Año]</span><span class="w"> </span>&amp; &quot;-&quot; &amp; Periodos[Trimestre]
+</code></pre></div></p>
+<h3 id="24-cuatrimestre">24. <strong>Cuatrimestre</strong><a class="headerlink" href="#24-cuatrimestre" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: Periodos<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>mes = VALUE(RIGHT(Periodos[periodo], 2))
+<span class="nb">VAR</span><span class="w"> </span>cctrim = IF( AND(1 &lt;= mes, mes &lt;= 4), 1, 
+<span class="w">                 </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">AND</span><span class="p">(</span><span class="m">5</span><span class="w"> </span>&lt;= mes, mes &lt;= 8), 2, 
+<span class="w">                     </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">AND</span><span class="p">(</span><span class="m">9</span><span class="w"> </span>&lt;= mes, mes &lt;= 12), 3, BLANK())
+<span class="w">                 </span><span class="p">)</span>
+<span class="w">              </span><span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span>cctrim
+</code></pre></div></p>
+<h3 id="25-trimestre">25. <strong>Trimestre</strong><a class="headerlink" href="#25-trimestre" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: Periodos<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nb">VAR</span><span class="w"> </span>mes = VALUE(RIGHT(Periodos[periodo], 2))
+<span class="nb">VAR</span><span class="w"> </span>cctrim = IF( AND(1 &lt;= mes, mes &lt;= 3), 1, 
+<span class="w">                 </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">AND</span><span class="p">(</span><span class="m">4</span><span class="w"> </span>&lt;= mes, mes &lt;= 6), 2, 
+<span class="w">                     </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">AND</span><span class="p">(</span><span class="m">7</span><span class="w"> </span>&lt;= mes, mes &lt;= 9), 3, 
+<span class="w">                         </span><span class="nf">IF</span><span class="p">(</span><span class="w"> </span><span class="nf">AND</span><span class="p">(</span><span class="m">10</span><span class="w"> </span>&lt;= mes, mes &lt;= 12), 4, BLANK())
+<span class="w">                     </span><span class="p">)</span>
+<span class="w">                 </span><span class="p">)</span>
+<span class="w">              </span><span class="p">)</span>
+<span class="nb">RETURN</span><span class="w"> </span>cctrim
+</code></pre></div></p>
+<h3 id="26-polaridad">26. <strong>Polaridad</strong><a class="headerlink" href="#26-polaridad" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: Satisfaccion<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span><span class="na">[Calificacion]</span><span class="w"> </span>&gt;= 4, &quot;Satisfecho&quot;, &quot;Insatisfecho&quot;)
+</code></pre></div></p>
+<h3 id="27-medio">27. <strong>Medio</strong><a class="headerlink" href="#27-medio" title="Permanent link">&para;</a></h3>
+<p><strong>Tabla</strong>: Igestion_Mercurio<br />
+<strong>Fórmula (DAX)</strong>:
+<div class="highlight"><pre><span></span><code><span class="nf">IF</span><span class="p">(</span><span class="na">Igestion_Mercurio[Fuente]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Mercurio_Trabajadores&quot;</span><span class="w"> </span>|| 
+<span class="w">   </span><span class="na">Igestion_Mercurio[Fuente]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Mercurio_Beneficiarios&quot;</span><span class="w"> </span>|| 
+<span class="w">   </span><span class="na">Igestion_Mercurio[Fuente]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Mercurio_Empresas&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mercurio&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Igestion&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="../../js/init_mermaid.js"></script>
+      
+    
+  </body>
+</html>
