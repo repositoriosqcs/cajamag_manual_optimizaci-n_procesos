@@ -48,6 +48,8 @@
     
       <link rel="stylesheet" href="../css/extra.css">
     
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -310,6 +312,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    RECOLECCIÓN DE INFORMACIÓN Y BASES DE DATOS
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -319,6 +332,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tablas-en-el-modelo-relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tablas en el Modelo Relacional
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -679,6 +720,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tablas-en-el-modelo-relacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tablas en el Modelo Relacional
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -701,232 +759,336 @@
 <p><strong>e) ¿Requiere Transformación Intermedia?</strong>: Si se creó una transformación intermedia entre bases de datos y servidores, tendrá estado “Sí” (para más información leer la sección 7.3), de lo contrario, “No”.</p>
 <p><strong>f) ¿Requiere Carga en dwh?</strong>: Hace referencia a si es necesario subir una tabla al servidor de pruebas dwh, o si la tabla viene producto de una transformación; en ambos casos tendrá “Sí” (para más información leer la sección 7.2). De lo contrario se visualiza “No”.</p>
 <p><strong>g) Frecuencia Actualización Recomendada</strong>: La frecuencia con la que se recomienda actualizar la información o en qué casos se recomienda actualizar.</p>
-<table>
-<thead>
-<tr>
-<th>N°</th>
-<th>Nombre Tabla en Modelo</th>
-<th>ETL Origen</th>
-<th>Tablas de Origen</th>
-<th>Descripción</th>
-<th>¿Requiere Transformación Intermedia?</th>
-<th>¿Requiere Carga en dwh?</th>
-<th>Frecuencia Actualización Recomendada</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Periodos</td>
-<td>1.3-CalendarioMensual</td>
-<td>dwh.BD_Dim_Calendario</td>
-<td>Periodos de Análisis en el Tablero</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>2</td>
-<td>EstadosDim</td>
-<td>1.4-Dimensiones</td>
-<td>dwh.BD_Dim_Estados_Inactivacion</td>
-<td>Paramétrica de descripción de estado de afiliación</td>
-<td>No</td>
-<td>No</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>3</td>
-<td>ZoneDim</td>
-<td>1.4-Dimensiones</td>
-<td>dwh.BD_Dim_Zona</td>
-<td>Paramétrica de descripción de Zonas</td>
-<td>No</td>
-<td>No</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>4</td>
-<td>FestivosColombia</td>
-<td>https://www.cuandoenelmundo.com</td>
-<td>N/A</td>
-<td>Tabla con Información de fechas festivas en Colombia</td>
-<td>No</td>
-<td>No</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>5</td>
-<td>ZoneDimCoor</td>
-<td>1.9-Dim_Parametricas</td>
-<td>dwh.BD_Dim_Coordenadas</td>
-<td>Tabla con las coordenadas para las Zonas</td>
-<td>No</td>
-<td>Sí</td>
-<td>Solo si se implementa una nueva zona</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Madurez</td>
-<td>Por definir Cajamag</td>
-<td>Formato Evaluación Madurez Modelo Empresarial.xlsx</td>
-<td>Tabla con resultado encuesta de Madurez empresarial</td>
-<td>No</td>
-<td>No</td>
-<td>Cada 6 meses</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Apo_Proy</td>
-<td>1.9-Dim_Parametricas</td>
-<td>dwh.BD_Dim_Proyeccion_cumpl_aportes</td>
-<td>Tabla con la proyección de aportes empresariales</td>
-<td>No</td>
-<td>Sí</td>
-<td>Cada año</td>
-</tr>
-<tr>
-<td>8</td>
-<td>TablaAfiliaciones</td>
-<td>N/A</td>
-<td>JSON</td>
-<td>Tabla de ayuda para visuales</td>
-<td>No</td>
-<td>No</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>9</td>
-<td>TipSocDim</td>
-<td>Minerva/subsidio</td>
-<td>subsidio.subsi54</td>
-<td>Tabla paramétrica de tipo de sociedad empresarial</td>
-<td>No</td>
-<td>No</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>10</td>
-<td>MetasCoberturaAfiliacion</td>
-<td>1.9-Dim_Parametricas</td>
-<td>dwh.BD_Dim_Meta_cobertura_afiliacion</td>
-<td>Tabla con la proyección de afiliación</td>
-<td>No</td>
-<td>Sí</td>
-<td>Cada año</td>
-</tr>
-<tr>
-<td>11</td>
-<td>Historico</td>
-<td>1.6-Fact_Historico_Afiliacion_Empresas</td>
-<td>dwh.BD_Fact_Historico_Afiliacion_Empresas</td>
-<td>Tabla con histórico de afiliaciones</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>12</td>
-<td>HistoricoAportesEmp</td>
-<td>2.1-FactAportesEmpAfiliadas</td>
-<td>dwh.BD_Fact_HistoricoTotalAportesEmp</td>
-<td>Tabla con histórico de aportes empresariales</td>
-<td>No</td>
-<td>No</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>13</td>
-<td>HistoricoMoraEmp</td>
-<td>2.5-Fact_HistoricoMoraEmp</td>
-<td>dwh.BD_Fact_HistoricoMoraEmp</td>
-<td>Tabla con histórico de presunta mora</td>
-<td>No</td>
-<td>No</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>14</td>
-<td>HistoricoANS</td>
-<td>2.6-FactHistoricoANS</td>
-<td>dwh.BD_Fact_HistoricoANS</td>
-<td>Tabla con histórico de tiempos de afiliación</td>
-<td>No</td>
-<td>No</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>15</td>
-<td>Igestion_SGI</td>
-<td>172.16.3.110 / dwh</td>
-<td>dwh.Igestion_SGI</td>
-<td>Tabla con histórico de PQRSFs</td>
-<td>No</td>
-<td>Sí</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>16</td>
-<td>HistoricoRecuperado</td>
-<td>2.9-FactHistoricoRecuperado</td>
-<td>dwh.BD_Fact_HistoricoRecuperado</td>
-<td>Tabla con histórico de aportes recuperados</td>
-<td>No</td>
-<td>No</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>17</td>
-<td>servicios</td>
-<td>172.16.3.110 / dwh</td>
-<td>dwh.servicios_sisu</td>
-<td>Tabla con lista de servicios empresariales</td>
-<td>No</td>
-<td>Sí</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>18</td>
-<td>Metricas</td>
-<td>1.9-Dim_Parametricas</td>
-<td>dwh.BD_Dim_Metricas</td>
-<td>Tabla con la lista de métricas</td>
-<td>No</td>
-<td>Sí</td>
-<td>Solo si se implementa una nueva métrica</td>
-</tr>
-<tr>
-<td>19</td>
-<td>Satisfaccion</td>
-<td>6.2-Fact_Encuesta_afil_empleador</td>
-<td>dwh.BD_Fact_Encuesta_afil_empleador</td>
-<td>Tabla estructura de encuestas de satisfacción</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>20</td>
-<td>IndicadoresOMDummy_1</td>
-<td>Drive</td>
-<td>Indicadores.xlsx – Hoja 1</td>
-<td>Tabla dummy con los indicadores que aplican para medición matriz RASCI</td>
-<td>No</td>
-<td>No</td>
-<td>Mensual</td>
-</tr>
-<tr>
-<td>21</td>
-<td>IndicadoresOMDummy_2</td>
-<td>Drive</td>
-<td>Indicadores.xlsx – Hoja 3</td>
-<td>Tabla dummy con los indicadores para satisfacción comportamiento calificación de matriz RASCI</td>
-<td>No</td>
-<td>No</td>
-<td>Mensual</td>
-</tr>
-</tbody>
-</table>
+<h3 id="tablas-en-el-modelo-relacional">Tablas en el Modelo Relacional<a class="headerlink" href="#tablas-en-el-modelo-relacional" title="Permanent link">&para;</a></h3>
+<details>
+  <summary>1. Periodos</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh.op_Periodos</p>
+  <p><strong>Descripción</strong>: Periodos de Análisis en el Tablero</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: Sí</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>2. EstadosDim</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: subsidio.subsi36</p>
+  <p><strong>Descripción</strong>: Paramétrica de descripción de estado de afiliación</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>3. ZoneDim</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: schoolkits.SK13</p>
+  <p><strong>Descripción</strong>: Paramétrica de descripción de Zonas</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>4. FestivosColombia</summary>
+  <p><strong>Ubicación origen</strong>: https://www.cuandoenelmundo.com/</p>
+  <p><strong>Tablas de Origen</strong>: N/A</p>
+  <p><strong>Descripción</strong>: Tabla con Información de fechas festivas en Colombia</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: N/A</p>
+</details>
+
+<details>
+  <summary>5. ZoneDimCoor</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh.Coordenadas</p>
+  <p><strong>Descripción</strong>: Tabla con las coordenadas para las Zonas</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Solo si se implementa una nueva zona</p>
+</details>
+
+<details>
+  <summary>6. Apo_Proy</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh.Proyeccion_cumpl_aportes</p>
+  <p><strong>Descripción</strong>: Tabla con la proyección de aportes empresariales</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Cada año</p>
+</details>
+
+<details>
+  <summary>7. TablaAfiliaciones</summary>
+  <p><strong>Ubicación origen</strong>: N/A</p>
+  <p><strong>Tablas de Origen</strong>: N/A</p>
+  <p><strong>Descripción</strong>: Tabla de ayuda para visuales</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: N/A</p>
+</details>
+
+<details>
+  <summary>8. TablaAportes</summary>
+  <p><strong>Ubicación origen</strong>: N/A</p>
+  <p><strong>Tablas de Origen</strong>: N/A</p>
+  <p><strong>Descripción</strong>: Tabla de ayuda para visuales</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: N/A</p>
+</details>
+
+<details>
+  <summary>9. MetasCoberturaAfiliacion</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh.Meta_proyeccion_cobertura_afiliacion</p>
+  <p><strong>Descripción</strong>: Tabla con la proyección de afiliación</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Cada año</p>
+</details>
+
+<details>
+  <summary>10. Historico</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh. op_sec_EmpresasSubsi02_v2, dwh. op_Trabajadores_p2, dwh. op_Trabajadores_p3, dwh.op_Beneficiarios_p2</p>
+  <p><strong>Descripción</strong>: Tabla con histórico de afiliaciones</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: Sí</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>11. HistoricoAportesEmp</summary>
+  <p><strong>Ubicación origen</strong>: dwh y xml4</p>
+  <p><strong>Tablas de Origen</strong>: subsidio.subsi11, xml4.xml4c085</p>
+  <p><strong>Descripción</strong>: Tabla con histórico de aportes empresariales</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>12. HistoricoMoraEmp</summary>
+  <p><strong>Ubicación origen</strong>: xml4 y dwh</p>
+  <p><strong>Tablas de Origen</strong>: xml4.xml4c070, subsidio.subsi173</p>
+  <p><strong>Descripción</strong>: Tabla con histórico de presunta mora</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>13. HistoricoANS</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: subsidio.subsi02, subsidio.subsi15, subsidio.subsi23</p>
+  <p><strong>Descripción</strong>: Tabla con histórico de tiempos de afiliación</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>14. HistoricoRecuperado</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: subsidio.subsi113, subsidio.subsi115, subsidio.subsi11</p>
+  <p><strong>Descripción</strong>: Tabla con histórico de aportes recuperados</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>15. Metricas</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh.Metricas</p>
+  <p><strong>Descripción</strong>: Tabla con los indicadores, cifras netas y resultados de satisfacción</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Solo si se crea una nueva medida</p>
+</details>
+
+<details>
+  <summary>16. Satisfaccion</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: Pendiente por definir</p>
+  <p><strong>Descripción</strong>: Tabla con la satisfacción de afiliación y cuota monetaria</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: Sí</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>17. Detalle_preguntas_encuestas</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh.Detalle_preguntas_encuestas</p>
+  <p><strong>Descripción</strong>: Tabla con el detalle de las preguntas para encuestas</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Solo si se crea o se modifica alguna pregunta</p>
+</details>
+
+<details>
+  <summary>18. Oportunidad</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh.Oportunidad</p>
+  <p><strong>Descripción</strong>: Tabla que contiene la estructura para que posteriormente sea actualizada la información requerida para el indicador de Oportunidad</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>19. HistoricoSubPrescrito</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: subsidio.subsi146, subsidio.subsi22, subsidio.subsi09</p>
+  <p><strong>Descripción</strong>: Tabla con histórico de subsidios prescritos</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>20. Meta_indicadores</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh.Metas_indicadores</p>
+  <p><strong>Descripción</strong>: Tabla con los indicadores definidos por el negocio</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Cada año</p>
+</details>
+
+<details>
+  <summary>21. ErroresGrabación</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh.Errores_grabacion</p>
+  <p><strong>Descripción</strong>: Tabla con los errores de grabación</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>22. MetasEncuestas</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh.MetasEncuestasSuper</p>
+  <p><strong>Descripción</strong>: Tabla con los lineamientos de la Super para encuestas de cuota monetaria</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Cada año</p>
+</details>
+
+<details>
+  <summary>23. HistoricoRecobro</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: subsidio.subsi219, subsidio.subsi220</p>
+  <p><strong>Descripción</strong>: Tabla con histórico de recobros</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>24. MetasCuota</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh.MetasCuota</p>
+  <p><strong>Descripción</strong>: Tabla con el cronograma de pago de cuotas monetarias</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>25. EstadoCivil</summary>
+  <p><strong>Ubicación origen</strong>: xml4</p>
+  <p><strong>Tablas de Origen</strong>: xml4.xml4b093</p>
+  <p><strong>Descripción</strong>: Tabla con el estado civil de los afiliados</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>26. Genero</summary>
+  <p><strong>Ubicación origen</strong>: xml4</p>
+  <p><strong>Tablas de Origen</strong>: xml4.xml4b005</p>
+  <p><strong>Descripción</strong>: Tabla con el detalle del género</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>27. NivelEducativo</summary>
+  <p><strong>Ubicación origen</strong>: xml4</p>
+  <p><strong>Tablas de Origen</strong>: xml4.xml4b047</p>
+  <p><strong>Descripción</strong>: Tabla con el detalle del nivel educativo</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>28. EstadoGiroCuota</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: subsidio.subsi09, subsidio.subsi146</p>
+  <p><strong>Descripción</strong>: Tabla con el estado del giro de la cuota monetaria</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>29. HistoricoCuota</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: subsidio.subsi09, Oportunidad</p>
+  <p><strong>Descripción</strong>: Tabla con el histórico de entrega de cuotas monetarias</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>30. Dpto_Ciudad</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: empresa.gener08, empresa.gener07</p>
+  <p><strong>Descripción</strong>: Tabla con el detalle del departamento y ciudad</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>31. Ben x Trab</summary>
+  <p><strong>Ubicación origen</strong>: xml4</p>
+  <p><strong>Tablas de Origen</strong>: xml4.xml4c087</p>
+  <p><strong>Descripción</strong>: Tabla con el conteo de beneficiarios por trabajador</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>32. Igestion_Mercurio</summary>
+  <p><strong>Ubicación origen</strong>: dwh</p>
+  <p><strong>Tablas de Origen</strong>: dwh.Igestion_SGI, dwh.Mercurio_Beneficiarios, dwh.Mercurio_Empresas, dwh.Mercurio_Trabajadores</p>
+  <p><strong>Descripción</strong>: Tabla con las solicitudes de afiliación por medio</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: Sí</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: Sí</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
+
+<details>
+  <summary>33. IndicadoresOMDummy</summary>
+  <p><strong>Ubicación origen</strong>: Drive</p>
+  <p><strong>Tablas de Origen</strong>: Indicadores.xlsx – Hoja 1</p>
+  <p><strong>Descripción</strong>: Tabla dummy con los indicadores que aplican para medición matriz RASCI</p>
+  <p><strong>¿Requiere Transformación Intermedia?</strong>: No</p>
+  <p><strong>¿Requiere Carga en dwh?</strong>: No</p>
+  <p><strong>Frecuencia Actualización Recomendada</strong>: Mensual</p>
+</details>
 
 
 
@@ -979,6 +1141,10 @@
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../js/init_mermaid.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-dax.min.js"></script>
       
     
   </body>

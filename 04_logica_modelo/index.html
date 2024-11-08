@@ -48,6 +48,8 @@
     
       <link rel="stylesheet" href="../css/extra.css">
     
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -270,17 +272,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    LÓGICA DEL MODELO
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -290,34 +281,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#descripcion-del-proceso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Descripción del Proceso
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -718,23 +681,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#descripcion-del-proceso" class="md-nav__link">
-    <span class="md-ellipsis">
-      Descripción del Proceso
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -749,39 +695,27 @@
 
 
 <h1 id="logica-del-modelo">Lógica del Modelo<a class="headerlink" href="#logica-del-modelo" title="Permanent link">&para;</a></h1>
-<p>A partir de las bases y tablas listadas anteriormente que fueron identificadas en los entendimientos en terreno con el equipo de Cajamag, se define el esquema general de ejecución mostrado en la siguiente ilustración:</p>
-<p><img alt="Esquema General de Ejecución" src="../img/esquema_general.png" /></p>
-<p>El esquema muestra que el proceso de transformación se realiza en su mayoría en el lenguaje MySQL. También se llevan a cabo algunos procesos en Power Query de Power BI. El detalle de estas transformaciones se aborda más adelante en el documento.</p>
-<h3 id="descripcion-del-proceso">Descripción del Proceso<a class="headerlink" href="#descripcion-del-proceso" title="Permanent link">&para;</a></h3>
-<ol>
-<li><strong>Extracción de Información</strong>:</li>
-<li>Las bases de datos y tablas identificadas incluyen fuentes como Xml4 y Subsidio del servidor Minerva, así como archivos paramétricos y planos proporcionados por Cajamag.</li>
-<li>
-<p>Se agrupan las tablas en bloques según su origen y propósito en el modelo.</p>
-</li>
-<li>
-<p><strong>Proceso de Transformación</strong>:</p>
-</li>
-<li>
-<p>Las transformaciones principales se ejecutan en MySQL, optimizando el manejo de los datos antes de ser procesados por la capa visual.</p>
-</li>
-<li>
-<p><strong>Visualización de Resultados</strong>:</p>
-</li>
-<li>La información transformada se carga en Power Query y se presenta en Power BI, formando la capa visual del Modelo Analítico de Optimización de Procesos.</li>
-</ol>
-<p>Este flujo permite consolidar y optimizar la información desde diversas fuentes hacia una representación visual efectiva en Power BI.</p>
+<p>A partir de las bases y tablas que fueron identificadas en los entendimientos con el equipo de Cajamag, se define el esquema general de ejecución mostrado en la <code>ilustración 1</code>. El esquema muestra que el proceso de transformación se realiza en su mayoría en el lenguaje MySQL. También se hace algunos procesos en Power Query de Power BI. El detalle de estas transformaciones se aborda más adelante.</p>
+<p><img alt="Ilustración 1: Esquema General de Ejecución" src="../img/esquema_general.png" /></p>
 <pre class="mermaid"><code>sequenceDiagram
-ServidorMinerva1 -&gt;&gt; DWH: Envia 7 tablas de Afiliación (Xml4)
-ServidorMinerva1 -&gt;&gt; DWH: Envia 8 tablas (Subsidio)
-ServidorMinerva1 -&gt;&gt; DWH: Envia 1 tabla (Schoolkits)
-ServidorMinerva1 -&gt;&gt; DWH: Envia 2 tablas (Xml4)
-ArchivosPlanos[Paramétricas y Archivos Planos] -&gt;&gt; DWH: Carga datos paramétricos y planos
+    participant ServidorMinerva as Servidor Minerva
+    participant Xml4 as Xml4
+    participant Subsidio as Subsidio
+    participant Parametricas as Paramétricas y Archivos Planos
+    participant dwh as dwh
+    participant PowerQuery as Power Query
+    participant PowerBI as Power BI
 
-DWH -&gt;&gt; PowerQuery: Proporciona datos transformados
-PowerQuery -&gt;&gt; PowerBI: Envía datos procesados
+    ServidorMinerva -&gt;&gt; Xml4: Extracción de Información
+    ServidorMinerva -&gt;&gt; Subsidio: Extracción de Información
+    ServidorMinerva -&gt;&gt; Parametricas: Extracción de Información
 
-DWH -&gt;&gt; PowerBI: Envía datos para visualización</code></pre>
+    Xml4 -&gt;&gt; dwh: Transferencia de Datos
+    Subsidio -&gt;&gt; dwh: Transferencia de Datos
+    Parametricas -&gt;&gt; dwh: Transferencia de Datos
+
+    dwh -&gt;&gt; PowerQuery: Proceso de Transformación
+    PowerQuery -&gt;&gt; PowerBI: Visualización de Resultados</code></pre>
 
 
 
@@ -834,6 +768,10 @@ DWH -&gt;&gt; PowerBI: Envía datos para visualización</code></pre>
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../js/init_mermaid.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-dax.min.js"></script>
       
     
   </body>
