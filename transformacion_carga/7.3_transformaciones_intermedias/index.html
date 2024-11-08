@@ -48,6 +48,8 @@
     
       <link rel="stylesheet" href="../../css/extra.css">
     
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -409,17 +411,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    3. Transformaciones Intermedias y Satisfacción
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -429,52 +420,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#fuente-1-periodos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fuente 1: Periodos
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fuente-11-historico" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fuente 11: Histórico
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fuente-20-satisfaccion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fuente 20: Satisfacción
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -738,41 +683,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#fuente-1-periodos" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fuente 1: Periodos
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fuente-11-historico" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fuente 11: Histórico
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fuente-20-satisfaccion" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fuente 20: Satisfacción
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -788,30 +698,40 @@
 
 <h1 id="transformaciones-intermedias-y-satisfaccion">Transformaciones Intermedias y Satisfacción<a class="headerlink" href="#transformaciones-intermedias-y-satisfaccion" title="Permanent link">&para;</a></h1>
 <p>Para las fuentes marcadas en la tabla 2 como “Sí” en la columna <strong>¿Requiere Transformación Intermedia?</strong>, es necesario aplicar un procesamiento intermedio de transformaciones. A continuación, se detallan los pasos a ejecutar para cada fuente, así como la opción de usar Python para realizar estas transformaciones.</p>
-<h2 id="fuente-1-periodos">Fuente 1: Periodos<a class="headerlink" href="#fuente-1-periodos" title="Permanent link">&para;</a></h2>
-<p>Esta fuente corresponde a la lista de periodos que se usarán para el análisis en el modelo.</p>
-<p><strong>Pasos:</strong></p>
-<ol>
-<li>Ejecutar la ETL <code>1.3-CalendarioMensual.ipynb</code>, la cual actualiza en DWH la tabla con el nombre <code>dwh.BD_Dim_Calendario</code>.</li>
-</ol>
-<h2 id="fuente-11-historico">Fuente 11: Histórico<a class="headerlink" href="#fuente-11-historico" title="Permanent link">&para;</a></h2>
-<p>Esta fuente contiene información sobre afiliaciones a lo largo del tiempo de empresas, trabajadores y beneficiarios, incluyendo datos sociodemográficos.</p>
-<p><strong>Pasos:</strong></p>
-<ol>
-<li>Para la actualización de esta información, ejecutar las siguientes ETL:</li>
-<li><code>1.6-Fact_Historico_Afiliacion_Empresas.ipynb</code> a DWH con el nombre <code>dwh.BD_Fact_Historico_Afiliacion_Empresas</code>.</li>
-<li><code>1.7-Fact_Historico_Trabajadores1.ipynb</code> a DWH con los nombres <code>BD_Fact_op_Trabajadores_p1</code> y <code>BD_Fact_op_Trabajadores_p2</code>.</li>
-<li>
-<p><code>1.8-Fact_HistoricoBeneficiarios.ipynb</code> a DWH con el nombre <code>dwh.BD_Fact_Beneficiarios_p2</code>.</p>
-</li>
-<li>
-<p>Para la actualización de esta información, ejecutar las siguientes ETL adicionales:</p>
-</li>
-<li><code>1.6-Fact_Historico_Afiliacion_Empresas.ipynb</code>.</li>
-<li><code>1.7-Fact_Historico_Trabajadores2.ipynb</code> a DWH con el nombre <code>BD_Fact_op_Trabajadores_p3</code>.</li>
-</ol>
-<h2 id="fuente-20-satisfaccion">Fuente 20: Satisfacción<a class="headerlink" href="#fuente-20-satisfaccion" title="Permanent link">&para;</a></h2>
-<p>Esta fuente se relaciona con el formato consolidado de encuestas de satisfacción de diferentes servicios y se almacena en la tabla <code>dwh.op_Satisfacción</code>.</p>
+<details>
+  <summary>Fuente 1: Periodos</summary>
+  <p>Esta fuente corresponde a la lista de periodos que se usarán para el análisis en el modelo.</p>
+  <p><strong>Pasos:</strong></p>
+  <ol>
+    <li>Ejecutar la ETL <code>1.3-CalendarioMensual.ipynb</code>, la cual actualiza en DWH la tabla con el nombre <code>dwh.BD_Dim_Calendario</code>.</li>
+  </ol>
+</details>
+
+<details>
+  <summary>Fuente 11: Histórico</summary>
+  <p>Esta fuente contiene información sobre afiliaciones a lo largo del tiempo de empresas, trabajadores y beneficiarios, incluyendo datos sociodemográficos.</p>
+  <p><strong>Pasos:</strong></p>
+  <ol>
+    <li>Para la actualización de esta información, ejecutar las siguientes ETL:
+      <ul>
+        <li><code>1.6-Fact_Historico_Afiliacion_Empresas.ipynb</code> a DWH con el nombre <code>dwh.BD_Fact_Historico_Afiliacion_Empresas</code>.</li>
+        <li><code>1.7-Fact_Historico_Trabajadores1.ipynb</code> a DWH con los nombres <code>BD_Fact_op_Trabajadores_p1</code> y <code>BD_Fact_op_Trabajadores_p2</code>.</li>
+        <li><code>1.8-Fact_HistoricoBeneficiarios.ipynb</code> a DWH con el nombre <code>dwh.BD_Fact_Beneficiarios_p2</code>.</li>
+      </ul>
+    </li>
+    <li>Para la actualización de esta información, ejecutar las siguientes ETL adicionales:
+      <ul>
+        <li><code>1.6-Fact_Historico_Afiliacion_Empresas.ipynb</code>.</li>
+        <li><code>1.7-Fact_Historico_Trabajadores2.ipynb</code> a DWH con el nombre <code>BD_Fact_op_Trabajadores_p3</code>.</li>
+      </ul>
+    </li>
+  </ol>
+</details>
+
+<details>
+  <summary>Fuente 20: Satisfacción</summary>
+  <p>Esta fuente se relaciona con el formato consolidado de encuestas de satisfacción de diferentes servicios y se almacena en la tabla <code>dwh.op_Satisfacción</code>.</p>
+</details>
 
 
 
@@ -864,6 +784,10 @@
       <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../../js/init_mermaid.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-dax.min.js"></script>
       
     
   </body>
